@@ -1,12 +1,15 @@
 package com.codecool.hogwartshouses.model;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+
+import java.util.Set;
+
 
 @Data
-@NoArgsConstructor
 @Builder
 public class Room {
 
+    private final int id;
+   @Singular private final Set<Student> students;
 }
