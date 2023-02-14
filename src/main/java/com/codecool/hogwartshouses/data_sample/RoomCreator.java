@@ -5,6 +5,8 @@ import com.codecool.hogwartshouses.service.DAO.RoomDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.HashSet;
+
 //TODO abstract Creator class
 @Component
 public class RoomCreator {
@@ -17,7 +19,7 @@ public class RoomCreator {
     }
 
     public void initialize() {
-        roomDAO.add(Room.builder().id(1).build());
-        roomDAO.add(Room.builder().id(2).build());
+        roomDAO.add(Room.builder().id(1).students(new HashSet<>()).build());
+        roomDAO.add(Room.builder().id(2).students(new HashSet<>()).build());
     }
 }

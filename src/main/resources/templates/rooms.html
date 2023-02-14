@@ -5,10 +5,19 @@
     <title>Rooms</title>
 </head>
 <body>
-<div class="roomList" th:each="room:${rooms}">
-    <a th:href="@{/rooms/{id}(id = ${room.id})}">
-        <span th:text="${room.getId()}"></span>
-    </a>
-</div>
+<table class="pure-table">
+    <thead>
+    <tr>
+        <th>Room ID</th>
+        <th>Resident Students</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="room:${rooms}">
+        <td th:text="${room.getId()}">###</td>
+        <td th:each="student:${room.getStudents()}"><span th:text="|${student.getName()}, |">vacant</span></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
