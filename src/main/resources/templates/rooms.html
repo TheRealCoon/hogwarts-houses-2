@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rooms</title>
+</head>
+<body>
+<div class="roomList" th:each="room:${rooms}">
+    <a th:href="@{/rooms/{id}(id = ${room.id})}">
+        <span th:text="${room.getId()}"></span>
+    </a>
+</div>
+</body>
+</html>
