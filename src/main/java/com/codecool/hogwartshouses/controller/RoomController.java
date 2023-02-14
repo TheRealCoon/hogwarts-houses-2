@@ -33,6 +33,8 @@ public class RoomController {
                 .collect(Collectors.toList())
                 .get(0);
         room.addStudent(Student.builder().name("Pisti").houseType(HouseType.RAVENCLAW).petType(PetType.NONE).build());
+        room.addStudent(Student.builder().name("Zoli").houseType(HouseType.RAVENCLAW).petType(PetType.NONE).build());
+        room.addStudent(Student.builder().name("Csabi").houseType(HouseType.RAVENCLAW).petType(PetType.NONE).build());
         //TODO delete till here
 
         model.addAttribute("rooms", roomService.getAll());
