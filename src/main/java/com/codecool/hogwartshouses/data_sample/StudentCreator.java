@@ -9,15 +9,16 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class StudentCreator {
-    @Autowired
-    StudentDAO studentMemory;
+    StudentDAO studentDAO;
 
-    public StudentCreator() {
+    @Autowired
+    public StudentCreator(StudentDAO studentDAO) {
+        this.studentDAO = studentDAO;
         initialize();
     }
 
     public void initialize() {
-        studentMemory.add(Student.builder().name("Hermione Granger").petType(PetType.CAT).houseType(HouseType.GRYFFINDOR).build());
-        studentMemory.add(Student.builder().name("Draco Malfoy").petType(PetType.NONE).houseType(HouseType.SLYTHERIN).build());
+        studentDAO.add(Student.builder().name("Hermione Granger").petType(PetType.CAT).houseType(HouseType.GRYFFINDOR).build());
+        studentDAO.add(Student.builder().name("Draco Malfoy").petType(PetType.NONE).houseType(HouseType.SLYTHERIN).build());
     }
 }
