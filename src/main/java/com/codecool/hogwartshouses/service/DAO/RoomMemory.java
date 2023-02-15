@@ -20,7 +20,15 @@ public class RoomMemory implements RoomDAO {
     }
 
     @Override
-    public void add(Room room){
+    public void add(Room room) {
         rooms.add(room);
+    }
+
+    @Override
+    public Room findRoomById(int id) {
+        return rooms.stream()
+                .filter(room -> room.getId() == id)
+                .findFirst()
+                .orElse(null);
     }
 }
