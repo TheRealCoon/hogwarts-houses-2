@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Rooms</title>
+    <title th:text="|Room no.${room.getId}|"></title>
 </head>
 <body>
 <table>
@@ -13,7 +13,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="room:${rooms}">
+    <tr>
         <td th:text="${room.getId()}">###</td>
         <td>
             <span th:each="student:${room.getStudents()}" th:text="|${student.getName()}, |">vacant</span>
@@ -21,8 +21,5 @@
     </tr>
     </tbody>
 </table>
-<form action="" method="post">
-    <button name="addRoom">Add Room</button>
-</form>
 </body>
 </html>
