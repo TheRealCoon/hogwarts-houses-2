@@ -19,7 +19,7 @@ public class RoomCreator {
     }
 
     public void initialize() {
-        roomDAO.add(Room.builder().id(1).students(new HashSet<>()).build());
-        roomDAO.add(Room.builder().id(2).students(new HashSet<>()).build());
+        roomDAO.add(Room.builder().build());
+        roomDAO.add(Room.builder().build());
     }
 }

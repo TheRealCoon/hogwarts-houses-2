@@ -1,18 +1,18 @@
 package com.codecool.hogwartshouses.model;
 
 import lombok.*;
-import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
 @Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class Room {
 
-    private int id;
-    private Set<Student> students;
+    private static int count;
+    @Builder.Default private final int id = ++count;
+    @Singular private final Set<Student> students = new HashSet<>();
+
 
     public void addStudent(Student student){
         students.add(student);
