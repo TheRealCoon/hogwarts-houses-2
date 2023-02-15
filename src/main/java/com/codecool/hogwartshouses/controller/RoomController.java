@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -42,4 +43,10 @@ public class RoomController {
         return "rooms";
     }
 
+    @PostMapping
+    public String addRoom(Model model){
+        roomService.addRoom(Room.builder().build()); //todo add houseType to Room maybe
+        model.addAttribute("rooms", roomService.getAll());
+        return "rooms";
+    }
 }
