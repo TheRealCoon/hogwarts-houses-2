@@ -29,9 +29,8 @@ public class RoomController {
     }
 
     @PostMapping
-    public String add(Model model){
+    public String add(){
         roomService.add(Room.builder().build()); //todo add houseType to Room maybe
-        model.addAttribute("rooms", roomService.getAll());
         return "redirect:/rooms";
     }
 
@@ -43,9 +42,8 @@ public class RoomController {
     }
 
     @DeleteMapping("/{roomId}")
-    public String delete(@PathVariable("roomId") int id, Model model){
+    public String delete(@PathVariable("roomId") int id){
         roomService.delete(id); //todo could be a boolean to know if there was something deleted or no
-        model.addAttribute("rooms", roomService.getAll());
-        return "redirect:";
+        return "redirect:/rooms";
     }
 }
