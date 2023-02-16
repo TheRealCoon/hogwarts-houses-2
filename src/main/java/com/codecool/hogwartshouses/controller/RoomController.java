@@ -30,7 +30,7 @@ public class RoomController {
 
     @PostMapping
     public String add(){
-        roomService.add(Room.builder().build()); //todo add houseType to Room maybe
+        roomService.add(Room.builder().build()); //todo add houseType, RoomCondition to Room
         return "redirect:/rooms";
     }
 
