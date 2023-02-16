@@ -20,7 +20,7 @@
             <span th:unless="${room.getStudents().isEmpty()}" th:each="student:${room.getStudents()}" th:text="|${student.getName()}, |"></span>
         </td>
         <td>
-            <form action="" th:action="@{'/rooms/{id}'(id=${room.getId()})}" th:method="delete" >
+            <form th:action="@{'/rooms/{id}'(id=${room.getId()})}" th:method="delete" >
                 <button type="submit">Delete</button>
             </form>
         </td>
