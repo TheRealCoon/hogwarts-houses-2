@@ -20,11 +20,11 @@ public class RoomService {
         return roomDAO.getAll();
     }
 
-    public void addRoom(Room room) {
+    public void add(Room room) {
         roomDAO.add(room);
     }
 
-    public Room findRoomById(int id) {
-        return roomDAO.findRoomById(id);
+    public Room findById(int id) {
+        return roomDAO.findById(id);
     }
 }

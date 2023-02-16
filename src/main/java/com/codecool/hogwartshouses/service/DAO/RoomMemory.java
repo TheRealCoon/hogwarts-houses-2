@@ -25,7 +25,7 @@ public class RoomMemory implements RoomDAO {
     }
 
     @Override
-    public Room findRoomById(int id) {
+    public Room findById(int id) {
         return rooms.stream()
                 .filter(room -> room.getId() == id)
                 .findFirst()

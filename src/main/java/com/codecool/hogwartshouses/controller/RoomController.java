@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
@@ -41,15 +40,15 @@ public class RoomController {
     }
 
     @PostMapping
-    public String addRoom(Model model){
-        roomService.addRoom(Room.builder().build()); //todo add houseType to Room maybe
+    public String add(Model model){
+        roomService.add(Room.builder().build()); //todo add houseType to Room maybe
         model.addAttribute("rooms", roomService.getAll());
         return "rooms";
     }
 
     @GetMapping("/{roomId}")
-    public String getRoom(@PathVariable("roomId") int id, Model model){
-        Room room = roomService.findRoomById(id);
+    public String findById(@PathVariable("roomId") int id, Model model){
+        Room room = roomService.findById(id);
         model.addAttribute("room", room);
         return "room";
     }
