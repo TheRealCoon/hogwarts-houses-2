@@ -27,4 +27,8 @@ public class RoomService {
     public Room findById(int id) {
         return roomDAO.findById(id);
     }
+
+    public void delete(int id) {
+        roomDAO.delete(id); //todo could be a boolean to know if there was something deleted or no
+    }
 }

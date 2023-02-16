@@ -18,6 +18,13 @@
         <td>
             <span th:each="student:${room.getStudents()}" th:text="|${student.getName()}, |">vacant</span>
         </td>
+        <td>
+            <form action="#" th:action="@{'/rooms/{id}'(id=${room.id})}" th:method="delete" >
+                <button type="submit">
+                    Delete
+                </button>
+            </form>
+        </td>
     </tr>
     </tbody>
 </table>

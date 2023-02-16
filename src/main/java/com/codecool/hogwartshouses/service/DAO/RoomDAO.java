@@ -13,4 +13,5 @@ public interface RoomDAO {
 
     Room findById(int id);
 
+    void delete(int id); //todo could be a boolean to know if there was something deleted or no
 }

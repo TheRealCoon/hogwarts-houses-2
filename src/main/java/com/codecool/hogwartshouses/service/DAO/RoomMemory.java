@@ -31,4 +31,10 @@ public class RoomMemory implements RoomDAO {
                 .findFirst()
                 .orElse(null);
     }
+
+    @Override
+    public void delete(int id) {
+        //todo could be a boolean to know if there was something deleted or no
+        rooms.removeIf(r -> r.getId() == id);
+    }
 }

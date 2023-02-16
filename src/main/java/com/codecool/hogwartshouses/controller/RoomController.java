@@ -52,4 +52,11 @@ public class RoomController {
         model.addAttribute("room", room);
         return "room";
     }
+
+    @DeleteMapping("/{roomId}")
+    public String delete(@PathVariable("roomId") int id, Model model){
+        roomService.delete(id); //todo could be a boolean to know if there was something deleted or no
+        model.addAttribute("rooms", roomService.getAll());
+        return "redirect:";
+    }
 }
