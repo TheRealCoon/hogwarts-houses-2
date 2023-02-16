@@ -46,4 +46,10 @@ public class RoomController {
         roomService.delete(id); //todo could be a boolean to know if there was something deleted or no
         return "redirect:/rooms";
     }
+
+    @PutMapping("/{roomId}")
+    public String renovate(@PathVariable("roomId") int id){
+        //TODO add RoomCondtion enum to Room, update room's condition to RENOVATED
+        return "redirect:/rooms";
+    }
 }
