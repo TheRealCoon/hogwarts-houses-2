@@ -16,13 +16,14 @@
     <tr th:each="room:${rooms}">
         <td th:text="${room.getId()}">###</td>
         <td>
-            <span th:each="student:${room.getStudents()}" th:text="|${student.getName()}, |">vacant</span>
+            <span th:if="${room.getStudents().isEmpty()}">vacant</span>
+            <span th:unless="${room.getStudents().isEmpty()}" th:each="student:${room.getStudents()}" th:text="|${student.getName()}, |"></span>
         </td>
     </tr>
     </tbody>
 </table>
 <form action="" method="post">
-    <button name="addRoom">Add Room</button>
+    <button name="addRoom" type="submit">Add Room</button>
 </form>
 </body>
 </html>

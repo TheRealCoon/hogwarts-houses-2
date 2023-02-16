@@ -16,13 +16,12 @@
     <tr>
         <td th:text="${room.getId()}">###</td>
         <td>
-            <span th:each="student:${room.getStudents()}" th:text="|${student.getName()}, |">vacant</span>
+            <span th:if="${room.getStudents().isEmpty()}">vacant</span>
+            <span th:unless="${room.getStudents().isEmpty()}" th:each="student:${room.getStudents()}" th:text="|${student.getName()}, |"></span>
         </td>
         <td>
-            <form action="#" th:action="@{'/rooms/{id}'(id=${room.id})}" th:method="delete" >
-                <button type="submit">
-                    Delete
-                </button>
+            <form action="" th:action="@{'/rooms/{id}'(id=${room.getId()})}" th:method="delete" >
+                <button type="submit">Delete</button>
             </form>
         </td>
     </tr>

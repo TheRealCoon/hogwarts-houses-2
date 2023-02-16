@@ -24,17 +24,6 @@ public class RoomController {
 
     @GetMapping
     public String getAll(Model model) {
-
-        //TODO delete this, this is just example data
-        Room room = roomService.getAll().stream()
-                .filter(r -> r.getId() == 1)
-                .collect(Collectors.toList())
-                .get(0);
-        room.addStudent(Student.builder().name("Pisti").houseType(HouseType.RAVENCLAW).petType(PetType.NONE).build());
-        room.addStudent(Student.builder().name("Zoli").houseType(HouseType.RAVENCLAW).petType(PetType.NONE).build());
-        room.addStudent(Student.builder().name("Csabi").houseType(HouseType.RAVENCLAW).petType(PetType.NONE).build());
-        //TODO delete till here
-
         model.addAttribute("rooms", roomService.getAll());
         return "rooms";
     }
@@ -43,7 +32,7 @@ public class RoomController {
     public String add(Model model){
         roomService.add(Room.builder().build()); //todo add houseType to Room maybe
         model.addAttribute("rooms", roomService.getAll());
-        return "rooms";
+        return "redirect:/rooms";
     }
 
     @GetMapping("/{roomId}")

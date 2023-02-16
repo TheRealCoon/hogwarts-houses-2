@@ -5,9 +5,6 @@ import com.codecool.hogwartshouses.service.DAO.RoomDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.HashSet;
-
-//TODO abstract Creator class
 @Component
 public class RoomCreator {
     RoomDAO roomDAO;
