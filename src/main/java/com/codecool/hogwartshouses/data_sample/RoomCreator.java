@@ -1,6 +1,8 @@
 package com.codecool.hogwartshouses.data_sample;
 
 import com.codecool.hogwartshouses.model.Room;
+import com.codecool.hogwartshouses.model.types.HouseType;
+import com.codecool.hogwartshouses.model.types.RoomCondition;
 import com.codecool.hogwartshouses.service.DAO.RoomDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,7 +18,7 @@ public class RoomCreator {
     }
 
     public void initialize() {
-        roomDAO.add(Room.builder().build());
-        roomDAO.add(Room.builder().build());
+        roomDAO.add(Room.builder().houseType(HouseType.RAVENCLAW).roomCondition(RoomCondition.OLD) .build());
+        roomDAO.add(Room.builder().houseType(HouseType.HUFFLEPUFF).roomCondition(RoomCondition.RENOVATED).build());
     }
 }
