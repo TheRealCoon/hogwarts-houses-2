@@ -29,28 +29,28 @@ public class RoomController {
 
     @PostMapping
     public String add(@RequestParam("houseType") HouseType houseType,
-                      @RequestParam("roomCondition") RoomCondition roomCondition){
-        roomService.add(Room.builder().houseType(houseType).roomCondition(roomCondition).build()); //todo add houseType, RoomCondition to Room
+                      @RequestParam("roomCondition") RoomCondition roomCondition) {
+        roomService.add(Room.builder().houseType(houseType).roomCondition(roomCondition).build());
         return "redirect:/rooms";
     }
 
     @GetMapping("/{roomId}")
-    public String findById(@PathVariable("roomId") int id, Model model){
+    public String findById(@PathVariable("roomId") int id, Model model) {
         Room room = roomService.findById(id);
         model.addAttribute("room", room);
         return "room";
     }
 
     @DeleteMapping("/{roomId}")
-    public String delete(@PathVariable("roomId") int id){
-        roomService.delete(id); //todo could be a boolean to know if there was something deleted or no
+    public String delete(@PathVariable("roomId") int id) {
+        roomService.delete(id);
         return "redirect:/rooms";
     }
 
     @PutMapping("/{roomId}")
-    public String renovate(@PathVariable("roomId") int id){
+    public String renovate(@PathVariable("roomId") int id, @RequestHeader("Referer") String referer) {
         roomService.renovate(id);
-        return "redirect:/rooms";
+        return "redirect:" + referer;
     }
 
 
