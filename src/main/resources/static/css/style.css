@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background-size: cover;
+    /*background: #594432;*/
+    background-image: url('../img/background.jpg');
+    background-size: cover;
+    background-size: 120%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-size: 1.2em;
+    line-height: 1.5;
+
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    color: #401C07;
+    margin: 2em;
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    /*color: #fff;*/
+    text-shadow: 3px 3px 1px #ccc;
+}
+
+button {
+    font-family: 'Mukta', sans-serif;
+    padding: 5px 15px;
+    width: 130px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.go-btn {
+    background-color: #44BF4D;
+}
+
+.ren-btn {
+    background-color: #D89924;
+}
+
+.del-btn {
+    background-color: #BF4439;
+}
+
+table, .container {
+    margin: auto;
+    justify-content: center;
+    justify-items: center;
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    width: 700px;
+    padding: 50px;
+}
+
+th {
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    /*margin-right: 50px;*/
+}
+
+tr th:nth-child(2) {
+    width: 300px;
+}
+
+tr th:nth-child(1) {
+    width: 100px;
+}
+
+a {
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 0.2em;
+    font-weight: bold;
+    text-underline: none;
+    text-decoration: none;
+}
+
+.button-group {
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.add-btn {
+    background-color: #4D99FF;
+}
