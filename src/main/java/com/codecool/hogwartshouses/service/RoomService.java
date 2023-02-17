@@ -9,11 +9,13 @@ import java.util.Set;
 
 @Service
 public class RoomService {
-    private RoomDAO roomDAO;
+    private final RoomDAO roomDAO;
+    private final StudentService studentService;
 
     @Autowired
-    public RoomService(RoomDAO roomDAO) {
+    public RoomService(RoomDAO roomDAO, StudentService studentService) {
         this.roomDAO = roomDAO;
+        this.studentService = studentService;
     }
 
     public Set<Room> getAll() {
@@ -29,7 +31,7 @@ public class RoomService {
     }
 
     public void delete(int id) {
-        roomDAO.delete(id); //todo could be a boolean to know if there was something deleted or no
+        roomDAO.delete(id);
     }
 
     public void renovate(int id) {

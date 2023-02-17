@@ -18,4 +18,12 @@ public class StudentMemory implements StudentDAO {
     public void add(Student student) {
         students.add(student);
     }
+
+    @Override
+    public Student findByName(String name) {
+        return students.stream()
+                .filter(s -> s.getName().equalsIgnoreCase(name))
+                .findFirst()
+                .orElse(null);
+    }
 }

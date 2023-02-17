@@ -16,18 +16,9 @@ public class RoomMemory implements RoomDAO {
 
     public RoomMemory(Set<Room> rooms) {
         this.rooms = rooms;
-        initialize();
     }
 
-    private void initialize(){
-        //TODO delete this method, this is just example data
-        Room room = Room.builder().build();
-        rooms.add(room);
-        room.addStudent(Student.builder().name("Pisti").houseType(HouseType.RAVENCLAW).petType(PetType.NONE).build());
-        room.addStudent(Student.builder().name("Zoli").houseType(HouseType.RAVENCLAW).petType(PetType.NONE).build());
-        room.addStudent(Student.builder().name("Csabi").houseType(HouseType.RAVENCLAW).petType(PetType.NONE).build());
-        //TODO delete till here
-    }
+
 
     @Override
     public Set<Room> getAll() {
@@ -49,7 +40,6 @@ public class RoomMemory implements RoomDAO {
 
     @Override
     public void delete(int id) {
-        //todo could be a boolean to know if there was something deleted or no
         rooms.removeIf(r -> r.getId() == id);
     }
 
