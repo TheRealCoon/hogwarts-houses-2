@@ -45,7 +45,19 @@
         </tbody>
     </table>
     <form method="post">
-        <button class="add-btn" name="addRoom" type="submit">Add Room</button>
+        <select name="houseType" id="houseType">
+            <option value="GRYFFINDOR">Gryffindor</option>
+            <option value="HUFFLEPUFF">Hufflepuff</option>
+            <option value="RAVENCLAW">Ravenclaw</option>
+            <option value="SLYTHERIN">Slytherin</option>
+        </select>
+        <select name="roomCondition" id="roomCondition">
+            <option value="RENOVATED">renovated</option>
+            <option value="MESSY">messy</option>
+            <option value="OLD">old</option>
+            <option value="UGLY">ugly</option>
+        </select>
+        <button class="add-btn" type="submit">Add Room</button>
     </form>
 </div>
 </body>

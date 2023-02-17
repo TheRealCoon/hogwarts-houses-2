@@ -31,4 +31,8 @@ public class RoomService {
     public void delete(int id) {
         roomDAO.delete(id); //todo could be a boolean to know if there was something deleted or no
     }
+
+    public void renovate(int id) {
+        roomDAO.renovate(id);
+    }
 }

@@ -4,6 +4,7 @@ import com.codecool.hogwartshouses.model.Room;
 import com.codecool.hogwartshouses.model.Student;
 import com.codecool.hogwartshouses.model.types.HouseType;
 import com.codecool.hogwartshouses.model.types.PetType;
+import com.codecool.hogwartshouses.model.types.RoomCondition;
 import org.springframework.stereotype.Repository;
 
 import java.util.Set;
@@ -50,5 +51,10 @@ public class RoomMemory implements RoomDAO {
     public void delete(int id) {
         //todo could be a boolean to know if there was something deleted or no
         rooms.removeIf(r -> r.getId() == id);
+    }
+
+    @Override
+    public void renovate(int id) {
+        findById(id).setRoomCondition(RoomCondition.RENOVATED);
     }
 }
