@@ -19,7 +19,6 @@ public class RoomMemory implements RoomDAO {
     }
 
 
-
     @Override
     public Set<Room> getAll() {
         return rooms;
@@ -48,24 +47,24 @@ public class RoomMemory implements RoomDAO {
         findById(id).setRoomCondition(RoomCondition.RENOVATED);
     }
 
-    public Set<Room> getAllAvailable(){
+    public Set<Room> getAllAvailable() {
         return rooms.stream()
                 .filter(r -> !r.isFull())
                 .collect(Collectors.toSet());
     }
 
-    public Set<Room> getByPetType(PetType... petTypes){
+    public Set<Room> getByPetType(PetType... petTypes) {
         Set<Room> filteredRooms = new HashSet<>();
-
-        for (int i = 0; i < petTypes.length; i++) {
-            int finalI = i;
-            filteredRooms.addAll(rooms.stream()
-                    .filter(r -> r.getStudents()
-                            .stream()
-                            .noneMatch(s -> s.getPetType().equals(petTypes[finalI])))
-                    .collect(Collectors.toSet()));
-        }
-
+        filteredRooms.addAll(rooms.stream()
+                .filter(r -> r.getStudents()
+                        .stream()
+                        .noneMatch(s -> {
+                            for (PetType petType : petTypes) {
+                                if (s.getPetType().equals(petType)) return true;
+                            }
+                            return false;
+                        }))
+                .collect(Collectors.toSet()));
         return filteredRooms;
     }
 }
