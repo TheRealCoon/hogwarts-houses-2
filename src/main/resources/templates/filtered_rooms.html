@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title th:text="${title}">Filtered Rooms</title>
+        <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="container">
+
+          <h1 th:text="|${title}:|"></h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>RoomID</th>
+                        <th>House</th>
+                        <th>Condition</th>
+                        <th>Residents</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="room:${rooms}">
+                        <td th:text="${room.getId()}">###</td>
+                        <td th:text="${room.getHouseType()}">####</td>
+                        <td th:text="${room.getRoomCondition()}">####</td>
+                        <td>
+                            <span th:if="${room.getStudents().isEmpty()}">vacant</span>
+                            <span th:unless="${room.getStudents().isEmpty()}" th:each="student:${room.getStudents()}"
+                                  th:text="|${student.getName()}, |"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="/rooms">Back</a>
+        </div>
+    </body>
+</html>

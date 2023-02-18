@@ -52,16 +52,18 @@ public class RoomController {
         return "redirect:" + referer;
     }
 
-    @GetMapping("/rooms/available")
+    @GetMapping("/available")
     public String getAllAvailable(Model model){
+        model.addAttribute("title", "Rooms available");
         model.addAttribute("rooms", roomService.getAllAvailable());
-        return "redirect:/rooms/available";
+        return "filtered_rooms";
     }
 
-    @GetMapping("/rooms/rat-owners")
+    @GetMapping("/rat-owners")
     public String getAllRatFriendly(Model model){
+        model.addAttribute("title", "Rooms for rat-owners");
         model.addAttribute("rooms", roomService.getByPetType(PetType.CAT, PetType.OWL));
-        return "redirect:/rooms/rat-owners";
+        return "filtered_rooms";
     }
 
 }
