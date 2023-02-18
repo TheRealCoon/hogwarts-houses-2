@@ -1,6 +1,7 @@
 package com.codecool.hogwartshouses.service;
 
 import com.codecool.hogwartshouses.model.Room;
+import com.codecool.hogwartshouses.model.types.PetType;
 import com.codecool.hogwartshouses.service.DAO.RoomDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,4 +38,13 @@ public class RoomService {
     public void renovate(int id) {
         roomDAO.renovate(id);
     }
+
+    public Set<Room> getAllAvailable(){
+        return roomDAO.getAllAvailable();
+    }
+
+    public Set<Room> getByPetType(PetType... petTypes){
+        return roomDAO.getByPetType(petTypes);
+    }
+
 }

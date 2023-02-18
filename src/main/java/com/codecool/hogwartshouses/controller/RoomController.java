@@ -2,14 +2,13 @@ package com.codecool.hogwartshouses.controller;
 
 import com.codecool.hogwartshouses.model.Room;
 import com.codecool.hogwartshouses.model.types.HouseType;
+import com.codecool.hogwartshouses.model.types.PetType;
 import com.codecool.hogwartshouses.model.types.RoomCondition;
 import com.codecool.hogwartshouses.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping(value = "/rooms")
@@ -53,5 +52,16 @@ public class RoomController {
         return "redirect:" + referer;
     }
 
+    @GetMapping("/rooms/available")
+    public String getAllAvailable(Model model){
+        model.addAttribute("rooms", roomService.getAllAvailable());
+        return "redirect:/rooms/available";
+    }
+
+    @GetMapping("/rooms/rat-owners")
+    public String getAllRatFriendly(Model model){
+        model.addAttribute("rooms", roomService.getByPetType(PetType.CAT, PetType.OWL));
+        return "redirect:/rooms/rat-owners";
+    }
 
 }
