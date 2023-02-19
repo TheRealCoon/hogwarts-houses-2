@@ -44,19 +44,23 @@
         </tr>
         </tbody>
     </table>
-    <form method="post">
-        <select name="houseType" id="houseType">
-            <option value="GRYFFINDOR">Gryffindor</option>
-            <option value="HUFFLEPUFF">Hufflepuff</option>
-            <option value="RAVENCLAW">Ravenclaw</option>
-            <option value="SLYTHERIN">Slytherin</option>
-        </select>
-        <select name="roomCondition" id="roomCondition">
-            <option value="RENOVATED">renovated</option>
-            <option value="MESSY">messy</option>
-            <option value="OLD">old</option>
-            <option value="UGLY">ugly</option>
-        </select>
+    <form class="custom-select" method="post">
+        <div class="select-wrapper">
+            <select name="houseType" id="houseType">
+                <option value="GRYFFINDOR">Gryffindor</option>
+                <option value="HUFFLEPUFF">Hufflepuff</option>
+                <option value="RAVENCLAW">Ravenclaw</option>
+                <option value="SLYTHERIN">Slytherin</option>
+            </select>
+            <div class="select-arrow" id="select-arrow-1"></div>
+            <select class="custom-select" name="roomCondition" id="roomCondition">
+                <option value="RENOVATED">renovated</option>
+                <option value="MESSY">messy</option>
+                <option value="OLD">old</option>
+                <option value="UGLY">ugly</option>
+            </select>
+            <div class="select-arrow" id="select-arrow-2"></div>
+        </div>
         <button class="add-btn" type="submit">Add Room</button>
     </form>
     <div>
