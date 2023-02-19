@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class StudentCreator {
-    StudentDAO studentDAO;
+    private final StudentDAO studentDAO;
 
     @Autowired
     public StudentCreator(StudentDAO studentDAO) {
