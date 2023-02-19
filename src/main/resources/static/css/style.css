@@ -4,12 +4,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 body {
+    color: #ddd;
     font-family: 'Raleway', sans-serif;
+    background-image: url('../img/background2.jpg');
     background-size: cover;
-    /*background: #594432;*/
-    background-image: url('../img/background.jpg');
-    background-size: cover;
-    background-size: 120%;
     background-repeat: no-repeat;
     background-attachment: fixed;
     font-size: 1.2em;
@@ -19,15 +17,21 @@ body {
 
 h1 {
     font-family: 'Playfair Display', serif;
-    color: #401C07;
+    color: rgba(204, 204, 204, 0.8);
     margin: 2em;
     text-align: center;
     font-size: 2.5em;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    /*color: #fff;*/
-    text-shadow: 3px 3px 1px #ccc;
+    text-shadow: 5px 5px 3px #401C07;
+}
+
+.button-group {
+    width: 180px;
+    align-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 button {
@@ -36,6 +40,12 @@ button {
     width: 130px;
     margin: 10px;
     border-radius: 10px;
+    transition: all 0.1s ease;
+}
+
+button:hover {
+    transform: scale(1.03);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
 
 .go-btn {
@@ -58,24 +68,53 @@ table, .container {
 
 .container {
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(62, 33, 22, 0.5);
     border-radius: 20px;
     width: 700px;
     padding: 50px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
 }
 
 th {
     text-align: left;
     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-    /*margin-right: 50px;*/
+    padding-left: 10px;
 }
 
-tr th:nth-child(2) {
+tr th:nth-child(4) {
     width: 300px;
 }
 
 tr th:nth-child(1) {
     width: 100px;
+}
+
+tr th:nth-child(2) {
+    width: 100px;
+}
+
+tr th:nth-child(3) {
+    width: 100px;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+td {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    border-bottom: none;
+    border-top: none;
+}
+
+td:first-child {
+    border-left: none;
+}
+
+td:last-child {
+    border-right: none;
 }
 
 a {
@@ -86,10 +125,73 @@ a {
     text-decoration: none;
 }
 
-.button-group {
-    border-top: 1px solid rgba(0, 0, 0, 0.3);
+
+.custom-select {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.select-wrapper {
+    display: flex;
+    position: relative;
+}
+
+.select-wrapper select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+    width: 150px;
+    z-index: 1;
+}
+
+select option {
+    color: black;
+
+}
+
+.select-arrow {
+    content: "";
+    position: absolute;
+    right: 160px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 6px 0 6px;
+    border-color: #fff transparent transparent transparent;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#select-arrow-1 {
+    right: 160px;
+}
+
+#select-arrow-2 {
+    right: 10px;
 }
 
 .add-btn {
-    background-color: #4D99FF;
+    background-color: #2D736C;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 10px 20px;
+    margin-left: 10px;
 }
+
+.add-btn:hover {
+    background-color: #7688A6;
+}
+
+select:focus {
+    outline: none;
+}
+
