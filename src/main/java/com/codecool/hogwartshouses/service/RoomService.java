@@ -11,12 +11,10 @@ import java.util.Set;
 @Service
 public class RoomService {
     private final RoomDAO roomDAO;
-    private final StudentService studentService;
 
     @Autowired
-    public RoomService(RoomDAO roomDAO, StudentService studentService) {
+    public RoomService(RoomDAO roomDAO) {
         this.roomDAO = roomDAO;
-        this.studentService = studentService;
     }
 
     public Set<Room> getAll() {
