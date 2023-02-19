@@ -3,12 +3,13 @@
 <head>
     <title>Hogwarts Houses</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <!--    <link href="../static/css/style.css" rel="stylesheet"/>-->
     <link th:href="@{/css/style.css}" rel="stylesheet"/>
-    <!--    <link th:href="@{/css/greeting.css}" rel="stylesheet" />-->
 </head>
 <body>
-<!--th:style="'background: url(/img/background.jpg) no-repeat center center fixed;'"-->
 <h1 th:text="'Hello, ' + ${name} + '!'"></h1>
+
+<p>
+    <a href="/rooms">list of all rooms</a>
+</p>
 </body>
 </html>
