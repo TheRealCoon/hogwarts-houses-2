@@ -15,11 +15,10 @@ public class Room {
     private static int count;
     @Builder.Default
     private final int id = ++count;
-    @Singular
     private final Set<Student> students = new HashSet<>();
     private final HouseType houseType;
     private RoomCondition roomCondition;
-    private boolean isFull = false;
+    private boolean isFull;
 
     public void addStudent(Student student) {
         if (!isFull && student.getHouseType().equals(houseType)) students.add(student);
