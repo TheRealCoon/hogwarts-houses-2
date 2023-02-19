@@ -27,6 +27,18 @@ h1 {
     text-shadow: 5px 5px 3px #401C07;
 }
 
+h2 {
+    font-family: 'Playfair Display', serif;
+    color: rgba(204, 204, 204, 0.8);
+    margin: 2em;
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-shadow: 5px 5px 3px #401C07;
+}
+
 .button-group {
     width: 180px;
     align-content: center;
