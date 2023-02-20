@@ -53,7 +53,7 @@ public class RoomMemory implements RoomDAO {
                 .collect(Collectors.toSet());
     }
 
-    public Set<Room> getByPetType(PetType... petTypes) {
+    public Set<Room> getWithoutPetType(PetType... petTypes) {
         Set<Room> filteredRooms = new HashSet<>();
         filteredRooms.addAll(rooms.stream()
                 .filter(r -> r.getStudents()

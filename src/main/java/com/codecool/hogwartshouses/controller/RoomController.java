@@ -62,7 +62,7 @@ public class RoomController {
     @GetMapping("/rat-owners")
     public String getAllRatFriendly(Model model){
         model.addAttribute("title", "Rooms for rat-owners");
-        model.addAttribute("rooms", roomService.getByPetType(PetType.CAT, PetType.OWL));
+        model.addAttribute("rooms", roomService.getWithoutPetType(PetType.CAT, PetType.OWL));
         return "filtered_rooms";
     }
 

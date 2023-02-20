@@ -19,6 +19,6 @@ public interface RoomDAO {
     void renovate(int id);
 
     Set<Room> getAllAvailable();
-    Set<Room> getByPetType(PetType... petTypes);
+    Set<Room> getWithoutPetType(PetType... petTypes);
 
 }

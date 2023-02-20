@@ -60,5 +60,9 @@ public class RoomCreator {
         roomDAO.add(room8);
         room8.addStudent(studentService.findByName("Gregory Goyle"));
         room8.addStudent(studentService.findByName("Tracey Davis"));
+
+        Room room9 = Room.builder().build();
+        roomDAO.add(room9);
+
     }
 }

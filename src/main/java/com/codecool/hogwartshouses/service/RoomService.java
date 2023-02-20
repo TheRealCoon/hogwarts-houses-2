@@ -41,8 +41,8 @@ public class RoomService {
         return roomDAO.getAllAvailable();
     }
 
-    public Set<Room> getByPetType(PetType... petTypes){
-        return roomDAO.getByPetType(petTypes);
+    public Set<Room> getWithoutPetType(PetType... petTypes){
+        return roomDAO.getWithoutPetType(petTypes);
     }
 
 }

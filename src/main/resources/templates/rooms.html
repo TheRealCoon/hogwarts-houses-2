@@ -20,9 +20,9 @@
         </thead>
         <tbody>
         <tr th:each="room:${rooms}">
-            <td th:text="${room.getId()}">###</td>
-            <td th:text="${room.getHouseType()}">####</td>
-            <td th:text="${room.getRoomCondition()}">####</td>
+            <td th:text="${room.getId()}?:'###'"></td>
+            <td th:text="${room.getHouseType()}?:'###'"></td>
+            <td th:text="${room.getRoomCondition()?:'####'}"></td>
             <td>
                 <span th:if="${room.getStudents().isEmpty()}">vacant</span>
                 <span th:unless="${room.getStudents().isEmpty()}" th:each="student:${room.getStudents()}"
