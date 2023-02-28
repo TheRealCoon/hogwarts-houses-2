@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="|Room no.${room.getId}|"></title>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <table>
+        <thead>
+        <tr>
+            <th>RoomID</th>
+            <th>House</th>
+            <th>Condition</th>
+            <th>Residents</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="${room.getId()}">###</td>
+            <td th:text="${room.getHouseType()}">#####</td>
+            <td th:text="${room.getRoomCondition()}">#####</td>
+            <td>
+                <span th:if="${room.getStudents().isEmpty()}">vacant</span>
+                <span th:unless="${room.getStudents().isEmpty()}" th:each="student:${room.getStudents()}"
+                      th:text="|${student.getName()}, |"></span>
+            </td>
+            <td>
+                <div class="button-group">
+                    <form th:action="@{'/rooms/{id}'(id=${room.getId()})}" th:method="put">
+                        <button class="ren-btn" type="submit">Renovate</button>
+                    </form>
+                    <form th:action="@{'/rooms/{id}'(id=${room.getId()})}" th:method="delete">
+                        <button class="del-btn" type="submit">Delete</button>
+                    </form>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/rooms">Back</a>
+</div>
+</body>
+</html>

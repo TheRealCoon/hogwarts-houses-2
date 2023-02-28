@@ -8,15 +8,14 @@
         <version>2.4.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-	<groupId>com.codecool</groupId>
-	<artifactId>hogwarts-houses</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>hogwarts-houses</name>
-	<description>Sprint2</description>
-	<properties>
-		<java.version>11</java.version>
-	</properties>
-
+    <groupId>com.codecool</groupId>
+    <artifactId>hogwarts-houses</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>hogwarts-houses</name>
+    <description>Sprint2</description>
+    <properties>
+        <java.version>11</java.version>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -73,8 +72,13 @@
             <version>1.7.30</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
