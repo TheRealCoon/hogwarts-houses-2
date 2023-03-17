@@ -10,11 +10,8 @@ import java.util.Set;
 @Data
 @Builder
 public class Room {
-
     private final static int ROOM_CAPACITY = 3;
-    private static int count;
-    @Builder.Default
-    private final int id = ++count;
+    private  long id;
     private final Set<Student> students = new HashSet<>();
     private final HouseType houseType;
     private RoomCondition roomCondition;
