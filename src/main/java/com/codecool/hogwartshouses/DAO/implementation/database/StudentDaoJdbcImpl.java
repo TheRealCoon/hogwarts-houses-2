@@ -30,7 +30,7 @@ public class StudentDaoJdbcImpl implements StudentDAO {
     @Override
     public void add(Student student) {
         final String sql = "INSERT INTO student (name, pet_type, house_type) VALUES (?, ?, ?);";
-        template.update(sql, student.getName(), student.getPetType(), student.getHouseType());
+        template.update(sql, student.getName(), student.getPetType().toString(), student.getHouseType().toString());
     }
 
     @Override
