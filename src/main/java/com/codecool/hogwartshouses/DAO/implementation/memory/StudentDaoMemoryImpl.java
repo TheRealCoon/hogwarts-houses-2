@@ -4,7 +4,10 @@ import com.codecool.hogwartshouses.DAO.StudentDAO;
 import com.codecool.hogwartshouses.model.Student;
 import org.springframework.stereotype.Repository;
 
+import java.util.Comparator;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Repository
 public class StudentDaoMemoryImpl implements StudentDAO {
@@ -13,6 +16,13 @@ public class StudentDaoMemoryImpl implements StudentDAO {
 
     public StudentDaoMemoryImpl(Set<Student> students) {
         this.students = students;
+    }
+
+    @Override
+    public List<Student> getAll() {
+        return students.stream()
+                .sorted(Comparator.comparing(Student::getId))
+                .collect(Collectors.toList());
     }
 
     @Override
