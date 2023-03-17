@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 @Primary
 public class StudentDaoJdbcImpl implements StudentDAO {
@@ -16,6 +18,11 @@ public class StudentDaoJdbcImpl implements StudentDAO {
     public StudentDaoJdbcImpl(JdbcTemplate template, StudentMapper mapper) {
         this.template = template;
         this.mapper = mapper;
+    }
+
+    @Override
+    public List<Student> getAll() {
+        return null;
     }
 
     @Override
