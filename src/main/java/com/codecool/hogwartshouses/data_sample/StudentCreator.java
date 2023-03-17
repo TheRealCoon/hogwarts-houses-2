@@ -21,7 +21,7 @@ public class StudentCreator {
         studentDAO.add(Student.builder().name("Hermione Granger").petType(PetType.CAT).houseType(HouseType.GRYFFINDOR).build());
         studentDAO.add(Student.builder().name("Harry Potter").petType(PetType.OWL).houseType(HouseType.GRYFFINDOR).build());
         studentDAO.add(Student.builder().name("Ron Weasley").petType(PetType.RAT).houseType(HouseType.GRYFFINDOR).build());
-        studentDAO.add(Student.builder().name("Neville LongBottom").petType(PetType.NONE).houseType(HouseType.GRYFFINDOR).build());
+        studentDAO.add(Student.builder().name("Neville Longbottom").petType(PetType.NONE).houseType(HouseType.GRYFFINDOR).build());
 
         studentDAO.add(Student.builder().name("Draco Malfoy").petType(PetType.NONE).houseType(HouseType.SLYTHERIN).build());
         studentDAO.add(Student.builder().name("Vincent Crabbe").petType(PetType.NONE).houseType(HouseType.SLYTHERIN).build());
