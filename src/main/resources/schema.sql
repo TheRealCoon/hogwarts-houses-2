@@ -2,7 +2,8 @@ DROP TABLE IF EXISTS building CASCADE;
 DROP SEQUENCE IF EXISTS building_id_seq;
 CREATE TABLE building
 (
-    id              long identity NOT NULL PRIMARY KEY
+    id              long identity NOT NULL PRIMARY KEY,
+    name            varchar(20)
 );
 
 DROP TABLE IF EXISTS room CASCADE;
