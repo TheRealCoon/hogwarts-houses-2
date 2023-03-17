@@ -29,7 +29,7 @@ DROP SEQUENCE IF EXISTS student_id_seq;
 CREATE TABLE student
 (
     id              long identity NOT NULL PRIMARY KEY,
-    "name"          varchar(100) NOT NULL,
+    name            varchar(100) NOT NULL,
     house_type      ENUM('GRYFFINDOR', 'HUFFLEPUFF', 'RAVENCLAW', 'SLYTHERIN') NOT NULL,
     pet_type        ENUM('CAT', 'RAT', 'OWL', 'NONE') NOT NULL
 );
