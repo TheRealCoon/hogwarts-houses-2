@@ -6,7 +6,9 @@ import com.codecool.hogwartshouses.DAO.RoomDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Set;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class RoomService {
@@ -17,8 +19,10 @@ public class RoomService {
         this.roomDAO = roomDAO;
     }
 
-    public Set<Room> getAll() {
-        return roomDAO.getAll();
+    public List<Room> getAll() {
+        return roomDAO.getAll().stream()
+                .sorted(Comparator.comparing(Room::getId))
+                .collect(Collectors.toList());
     }
 
     public void add(Room room) {
@@ -37,12 +41,16 @@ public class RoomService {
         roomDAO.renovate(id);
     }
 
-    public Set<Room> getAllAvailable(){
-        return roomDAO.getAllAvailable();
+    public List<Room> getAllAvailable(){
+        return roomDAO.getAllAvailable().stream()
+                .sorted(Comparator.comparing(Room::getId))
+                .collect(Collectors.toList());
     }
 
-    public Set<Room> getWithoutPetType(PetType... petTypes){
-        return roomDAO.getWithoutPetType(petTypes);
+    public List<Room> getWithoutPetType(PetType... petTypes){
+        return roomDAO.getWithoutPetType(petTypes).stream()
+                .sorted(Comparator.comparing(Room::getId))
+                .collect(Collectors.toList());
     }
 
 }
