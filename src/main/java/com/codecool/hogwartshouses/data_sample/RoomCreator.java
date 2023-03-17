@@ -6,15 +6,17 @@ import com.codecool.hogwartshouses.model.types.RoomCondition;
 import com.codecool.hogwartshouses.DAO.RoomDAO;
 import com.codecool.hogwartshouses.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
 
 @Component
+@DependsOn("studentCreator")
 public class RoomCreator {
     private final RoomDAO roomDAO;
     private final StudentService studentService;
 
     @Autowired
-    public RoomCreator(RoomDAO roomDAO, StudentCreator studentCreator, StudentService studentService) {
+    public RoomCreator(RoomDAO roomDAO, StudentService studentService) {
         this.roomDAO = roomDAO;
         this.studentService = studentService;
         initialize();
