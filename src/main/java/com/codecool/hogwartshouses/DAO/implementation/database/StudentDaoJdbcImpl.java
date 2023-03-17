@@ -23,17 +23,20 @@ public class StudentDaoJdbcImpl implements StudentDAO {
 
     @Override
     public List<Student> getAll() {
-        return null;
+        final String sql = "SELECT id, name, pet_type, house_type FROM student;";
+        return template.query(sql, mapper);
     }
 
     @Override
     public void add(Student student) {
-
+        final String sql = "INSERT INTO student (name, pet_type, house_type) VALUES (?, ?, ?);";
+        template.update(sql, student.getName(), student.getPetType(), student.getHouseType());
     }
 
     @Override
     public Student findByName(String name) {
-        return null;
+        final String sql = "SELECT id, name, pet_type, house_type FROM student WHERE name = ?;";
+        return template.query(sql, mapper, name).stream().findFirst().orElse(null);
     }
 
     @Override
@@ -45,11 +48,13 @@ public class StudentDaoJdbcImpl implements StudentDAO {
 
     @Override
     public void update(long id, Student student) {
-
+        final String sql = "UPDATE student SET name = ?, pet_type = ?, house_type = ? WHERE id = ?;";
+        template.update(sql, student.getName(), student.getPetType().toString(), student.getHouseType().toString());
     }
 
     @Override
     public void delete(long id) {
-
+        final String sql = "DELETE FROM student WHERE id = ?;";
+        template.update(sql, id);
     }
 }
