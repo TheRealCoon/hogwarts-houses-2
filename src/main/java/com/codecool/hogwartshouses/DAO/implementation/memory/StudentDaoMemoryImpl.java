@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -37,6 +38,13 @@ public class StudentDaoMemoryImpl implements StudentDAO {
                 .filter(s -> s.getName().equalsIgnoreCase(name))
                 .findFirst()
                 .orElse(null);
+    }
+
+    @Override
+    public Optional<Student> findById(long id) {
+        return students.stream()
+                .filter(s -> s.getId() == id)
+                .findFirst();
     }
 
     @Override

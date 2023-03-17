@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @Primary
@@ -34,6 +35,13 @@ public class StudentDaoJdbcImpl implements StudentDAO {
     public Student findByName(String name) {
         return null;
     }
+
+    @Override
+    public Optional<Student> findById(long id) {
+        final String sql = "SELECT id, name, pet_type, house_type FROM student WHERE id = ?;";
+        return template.query(sql, mapper, id).stream().findFirst();
+    }
+
 
     @Override
     public void update(long id, Student student) {
