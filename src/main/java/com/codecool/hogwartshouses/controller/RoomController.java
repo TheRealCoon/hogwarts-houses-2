@@ -34,20 +34,20 @@ public class RoomController {
     }
 
     @GetMapping("/{roomId}")
-    public String findById(@PathVariable("roomId") int id, Model model) {
-        Room room = roomService.findById(id);
+    public String findById(@PathVariable("roomId") long id, Model model) {
+        Room room = roomService.findById(id).get();
         model.addAttribute("room", room);
         return "room";
     }
 
     @DeleteMapping("/{roomId}")
-    public String delete(@PathVariable("roomId") int id) {
+    public String delete(@PathVariable("roomId") long id) {
         roomService.delete(id);
         return "redirect:/rooms";
     }
 
     @PutMapping("/{roomId}")
-    public String renovate(@PathVariable("roomId") int id, @RequestHeader("Referer") String referer) {
+    public String renovate(@PathVariable("roomId") long id, @RequestHeader("Referer") String referer) {
         roomService.renovate(id);
         return "redirect:" + referer;
     }

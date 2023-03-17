@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -29,15 +30,15 @@ public class RoomService {
         roomDAO.add(room);
     }
 
-    public Room findById(int id) {
+    public Optional<Room> findById(long id) {
         return roomDAO.findById(id);
     }
 
-    public void delete(int id) {
+    public void delete(long id) {
         roomDAO.delete(id);
     }
 
-    public void renovate(int id) {
+    public void renovate(long id) {
         roomDAO.renovate(id);
     }
 

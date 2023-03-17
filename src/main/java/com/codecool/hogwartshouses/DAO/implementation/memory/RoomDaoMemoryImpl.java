@@ -33,21 +33,20 @@ public class RoomDaoMemoryImpl implements RoomDAO {
     }
 
     @Override
-    public Room findById(int id) {
+    public Optional<Room> findById(long id) {
         return rooms.stream()
                 .filter(room -> room.getId() == id)
-                .findFirst()
-                .orElse(null);
+                .findFirst();
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(long id) {
         rooms.removeIf(r -> r.getId() == id);
     }
 
     @Override
-    public void renovate(int id) {
-        findById(id).setRoomCondition(RoomCondition.RENOVATED);
+    public void renovate(long id) {
+        findById(id).ifPresent(r -> r.setRoomCondition(RoomCondition.RENOVATED));
     }
 
     public List<Room> getAllAvailable() {

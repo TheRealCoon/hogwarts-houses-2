@@ -5,6 +5,7 @@ import com.codecool.hogwartshouses.model.types.PetType;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface RoomDAO {
@@ -12,11 +13,11 @@ public interface RoomDAO {
 
     void add(Room room);
 
-    Room findById(int id);
+    Optional<Room> findById(long id);
 
-    void delete(int id);
+    void delete(long id);
 
-    void renovate(int id);
+    void renovate(long id);
 
     List<Room> getAllAvailable();
     List<Room> getWithoutPetType(PetType... petTypes);
