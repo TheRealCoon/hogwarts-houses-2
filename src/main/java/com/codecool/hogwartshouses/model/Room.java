@@ -18,6 +18,7 @@ public class Room {
     private final HouseType houseType;
     private RoomCondition roomCondition;
     private boolean isFull;
+    private long buildingId;
 
     public void addStudent(Student student) {
         if (!isFull && student.getHouseType().equals(houseType)) students.add(student);

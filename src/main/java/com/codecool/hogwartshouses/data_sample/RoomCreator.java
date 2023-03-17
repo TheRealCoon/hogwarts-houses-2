@@ -21,47 +21,47 @@ public class RoomCreator {
     }
 
     public void initialize() {
-        Room room1  = Room.builder().houseType(HouseType.GRYFFINDOR).roomCondition(RoomCondition.OLD).build();
+        Room room1  = Room.builder().buildingId(1).houseType(HouseType.GRYFFINDOR).roomCondition(RoomCondition.OLD).build();
         roomDAO.add(room1);
         room1.addStudent(studentService.findByName("Hermione Granger"));
 
-        Room room2 = Room.builder().houseType(HouseType.SLYTHERIN).roomCondition(RoomCondition.MESSY).build();
+        Room room2 = Room.builder().buildingId(2).houseType(HouseType.SLYTHERIN).roomCondition(RoomCondition.MESSY).build();
         roomDAO.add(room2);
         room2.addStudent(studentService.findByName("Draco Malfoy"));
         room2.addStudent(studentService.findByName("Vincent Crabbe"));
 
-        Room room3 = Room.builder().houseType(HouseType.GRYFFINDOR).roomCondition(RoomCondition.UGLY).build();
+        Room room3 = Room.builder().buildingId(1).houseType(HouseType.GRYFFINDOR).roomCondition(RoomCondition.UGLY).build();
         roomDAO.add(room3);
         room3.addStudent(studentService.findByName("Harry Potter"));
         room3.addStudent(studentService.findByName("Ron Weasley"));
         room3.addStudent(studentService.findByName("Neville Longbottom"));
 
-        Room room4 = Room.builder().houseType(HouseType.HUFFLEPUFF).roomCondition(RoomCondition.RENOVATED).build();
+        Room room4 = Room.builder().buildingId(3).houseType(HouseType.HUFFLEPUFF).roomCondition(RoomCondition.RENOVATED).build();
         roomDAO.add(room4);
         room4.addStudent(studentService.findByName("Hannah Abbott"));
         room4.addStudent(studentService.findByName("Susan Bones"));
 
-        Room room5 = Room.builder().houseType(HouseType.HUFFLEPUFF).roomCondition(RoomCondition.OLD).build();
+        Room room5 = Room.builder().buildingId(1).houseType(HouseType.HUFFLEPUFF).roomCondition(RoomCondition.OLD).build();
         roomDAO.add(room5);
         room5.addStudent(studentService.findByName("Zacharias Smith"));
         room5.addStudent(studentService.findByName("James Tuckett"));
 
-        Room room6 = Room.builder().houseType(HouseType.RAVENCLAW).roomCondition(RoomCondition.UGLY).build();
+        Room room6 = Room.builder().buildingId(4).houseType(HouseType.RAVENCLAW).roomCondition(RoomCondition.UGLY).build();
         roomDAO.add(room6);
         room6.addStudent(studentService.findByName("Roger Davies"));
         room6.addStudent(studentService.findByName("Felicity Eastchurch"));
         room6.addStudent(studentService.findByName("Ethan Bexley"));
 
-        Room room7 = Room.builder().houseType(HouseType.RAVENCLAW).roomCondition(RoomCondition.UGLY).build();
+        Room room7 = Room.builder().buildingId(4).houseType(HouseType.RAVENCLAW).roomCondition(RoomCondition.UGLY).build();
         roomDAO.add(room7);
         room7.addStudent(studentService.findByName("Luna Lovegood"));
 
-        Room room8 = Room.builder().houseType(HouseType.SLYTHERIN).roomCondition(RoomCondition.OLD).build();
+        Room room8 = Room.builder().buildingId(1).houseType(HouseType.SLYTHERIN).roomCondition(RoomCondition.OLD).build();
         roomDAO.add(room8);
         room8.addStudent(studentService.findByName("Gregory Goyle"));
         room8.addStudent(studentService.findByName("Tracey Davis"));
 
-        Room room9 = Room.builder().build();
+        Room room9 = Room.builder().buildingId(5).houseType(HouseType.RAVENCLAW).roomCondition(RoomCondition.RENOVATED).build();
         roomDAO.add(room9);
 
     }
