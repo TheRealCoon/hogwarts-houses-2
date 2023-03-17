@@ -1,6 +1,7 @@
 package com.codecool.hogwartshouses.DAO.implementation.database;
 
 import com.codecool.hogwartshouses.DAO.StudentDAO;
+import com.codecool.hogwartshouses.DAO.mapper.StudentMapper;
 import com.codecool.hogwartshouses.model.Student;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -10,10 +11,11 @@ import org.springframework.stereotype.Repository;
 @Primary
 public class StudentDaoJdbcImpl implements StudentDAO {
     private final JdbcTemplate template;
-    //TODO add mapper
+    private final StudentMapper mapper;
 
-    public StudentDaoJdbcImpl(JdbcTemplate template) {
+    public StudentDaoJdbcImpl(JdbcTemplate template, StudentMapper mapper) {
         this.template = template;
+        this.mapper = mapper;
     }
 
     @Override

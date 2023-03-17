@@ -1,6 +1,7 @@
 package com.codecool.hogwartshouses.DAO.implementation.database;
 
 import com.codecool.hogwartshouses.DAO.RoomDAO;
+import com.codecool.hogwartshouses.DAO.mapper.RoomMapper;
 import com.codecool.hogwartshouses.model.Room;
 import com.codecool.hogwartshouses.model.types.PetType;
 import org.springframework.context.annotation.Primary;
@@ -13,10 +14,11 @@ import java.util.Set;
 @Primary
 public class RoomDaoJdbcImpl implements RoomDAO {
     private final JdbcTemplate template;
-    //TODO add mapper
+    private final RoomMapper mapper;
 
-    public RoomDaoJdbcImpl(JdbcTemplate template) {
+    public RoomDaoJdbcImpl(JdbcTemplate template, RoomMapper mapper) {
         this.template = template;
+        this.mapper = mapper;
     }
 
     @Override

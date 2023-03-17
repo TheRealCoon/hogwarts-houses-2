@@ -1,6 +1,7 @@
 package com.codecool.hogwartshouses.DAO.implementation.database;
 
 import com.codecool.hogwartshouses.DAO.BuildingDAO;
+import com.codecool.hogwartshouses.DAO.mapper.BuildingMapper;
 import com.codecool.hogwartshouses.model.Building;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -13,10 +14,11 @@ import java.util.Optional;
 @Primary
 public class BuildingDaoJdbcImpl implements BuildingDAO {
     private final JdbcTemplate template;
-    //TODO add mapper
+    private final BuildingMapper mapper;
 
-    public BuildingDaoJdbcImpl(JdbcTemplate template) {
+    public BuildingDaoJdbcImpl(JdbcTemplate template, BuildingMapper mapper) {
         this.template = template;
+        this.mapper = mapper;
     }
 
     @Override
