@@ -28,4 +28,21 @@ public class StudentMemory implements StudentDAO {
                 .findFirst()
                 .orElse(null);
     }
+
+    @Override
+    public void update(long id, Student student) {
+        students.stream()
+                .filter(s -> s.getId() == id)
+                .findFirst()
+                .ifPresent(s -> {
+                    s.setName(student.getName());
+                    s.setHouseType(student.getHouseType());
+                    s.setPetType(student.getPetType());
+                });
+    }
+
+    @Override
+    public void delete(long id) {
+        students.removeIf(s -> s.getId() == id);
+    }
 }
