@@ -2,7 +2,7 @@ package com.codecool.hogwartshouses.service;
 
 import com.codecool.hogwartshouses.model.Room;
 import com.codecool.hogwartshouses.model.types.PetType;
-import com.codecool.hogwartshouses.service.DAO.RoomDAO;
+import com.codecool.hogwartshouses.DAO.RoomDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -3,7 +3,7 @@ package com.codecool.hogwartshouses.data_sample;
 import com.codecool.hogwartshouses.model.Room;
 import com.codecool.hogwartshouses.model.types.HouseType;
 import com.codecool.hogwartshouses.model.types.RoomCondition;
-import com.codecool.hogwartshouses.service.DAO.RoomDAO;
+import com.codecool.hogwartshouses.DAO.RoomDAO;
 import com.codecool.hogwartshouses.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

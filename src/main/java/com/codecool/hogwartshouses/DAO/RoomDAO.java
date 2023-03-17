@@ -1,4 +1,4 @@
-package com.codecool.hogwartshouses.service.DAO;
+package com.codecool.hogwartshouses.DAO;
 
 import com.codecool.hogwartshouses.model.Room;
 import com.codecool.hogwartshouses.model.types.PetType;
