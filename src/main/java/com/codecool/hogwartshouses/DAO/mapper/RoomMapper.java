@@ -4,10 +4,12 @@ import com.codecool.hogwartshouses.model.Room;
 import com.codecool.hogwartshouses.model.types.HouseType;
 import com.codecool.hogwartshouses.model.types.RoomCondition;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+@Component
 public class RoomMapper implements RowMapper<Room> {
     @Override
     public Room mapRow(ResultSet rs, int rowNum) throws SQLException {
