@@ -7,11 +7,11 @@ import org.springframework.stereotype.Repository;
 import java.util.Set;
 
 @Repository
-public class StudentMemory implements StudentDAO {
+public class StudentDaoMemoryImpl implements StudentDAO {
     private static long idCounter;
     private Set<Student> students;
 
-    public StudentMemory(Set<Student> students) {
+    public StudentDaoMemoryImpl(Set<Student> students) {
         this.students = students;
     }
 

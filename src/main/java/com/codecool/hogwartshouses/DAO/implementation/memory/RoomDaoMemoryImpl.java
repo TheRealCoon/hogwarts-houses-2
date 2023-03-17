@@ -11,11 +11,11 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Repository
-public class RoomMemory implements RoomDAO {
+public class RoomDaoMemoryImpl implements RoomDAO {
     private static long idCounter;
     private Set<Room> rooms;
 
-    public RoomMemory(Set<Room> rooms) {
+    public RoomDaoMemoryImpl(Set<Room> rooms) {
         this.rooms = rooms;
     }
 

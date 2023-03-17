@@ -11,11 +11,11 @@ import java.util.Optional;
 
 @Repository
 @Primary
-public class BuildingJdbc implements BuildingDAO {
+public class BuildingDaoJdbcImpl implements BuildingDAO {
     private final JdbcTemplate template;
     //TODO add mapper
 
-    public BuildingJdbc(JdbcTemplate template) {
+    public BuildingDaoJdbcImpl(JdbcTemplate template) {
         this.template = template;
     }
 

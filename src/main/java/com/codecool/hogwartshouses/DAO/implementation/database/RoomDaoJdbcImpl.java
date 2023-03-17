@@ -11,11 +11,11 @@ import java.util.Set;
 
 @Repository
 @Primary
-public class RoomJdbc implements RoomDAO {
+public class RoomDaoJdbcImpl implements RoomDAO {
     private final JdbcTemplate template;
     //TODO add mapper
 
-    public RoomJdbc(JdbcTemplate template) {
+    public RoomDaoJdbcImpl(JdbcTemplate template) {
         this.template = template;
     }
 

@@ -8,11 +8,11 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @Primary
-public class StudentJdbc implements StudentDAO {
+public class StudentDaoJdbcImpl implements StudentDAO {
     private final JdbcTemplate template;
     //TODO add mapper
 
-    public StudentJdbc(JdbcTemplate template) {
+    public StudentDaoJdbcImpl(JdbcTemplate template) {
         this.template = template;
     }
 
