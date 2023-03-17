@@ -26,6 +26,7 @@ INSERT INTO room (building_id, house_type, room_condition) VALUES (1, 'HUFFLEPUF
 INSERT INTO room (building_id, house_type, room_condition) VALUES (4, 'RAVENCLAW', 'UGLY');
 INSERT INTO room (building_id, house_type, room_condition) VALUES (4, 'RAVENCLAW', 'UGLY');
 INSERT INTO room (building_id, house_type, room_condition) VALUES (1, 'SLYTHERIN', 'OLD');
+INSERT INTO room (building_id, house_type, room_condition) VALUES (5, 'SLYTHERIN', 'OLD');
 */
 
 /*
