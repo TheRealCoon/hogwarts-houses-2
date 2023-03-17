@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 @Repository
 public class RoomMemory implements RoomDAO {
-
+    private static long idCounter;
     private Set<Room> rooms;
 
     public RoomMemory(Set<Room> rooms) {
@@ -27,6 +27,7 @@ public class RoomMemory implements RoomDAO {
 
     @Override
     public void add(Room room) {
+        room.setId(++idCounter);
         rooms.add(room);
     }
 

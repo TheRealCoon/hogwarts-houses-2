@@ -8,7 +8,7 @@ import java.util.Set;
 
 @Repository
 public class StudentMemory implements StudentDAO {
-
+    private static long idCounter;
     private Set<Student> students;
 
     public StudentMemory(Set<Student> students) {
@@ -17,6 +17,7 @@ public class StudentMemory implements StudentDAO {
 
     @Override
     public void add(Student student) {
+        student.setId(++idCounter);
         students.add(student);
     }
 
