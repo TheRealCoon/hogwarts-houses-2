@@ -6,14 +6,13 @@ import com.codecool.hogwartshouses.model.types.PetType;
 import com.codecool.hogwartshouses.model.types.RoomCondition;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Repository
 public class RoomDaoMemoryImpl implements RoomDAO {
     private static long idCounter;
-    private Set<Room> rooms;
+    private final Set<Room> rooms;
 
     public RoomDaoMemoryImpl(Set<Room> rooms) {
         this.rooms = rooms;
@@ -21,8 +20,10 @@ public class RoomDaoMemoryImpl implements RoomDAO {
 
 
     @Override
-    public Set<Room> getAll() {
-        return rooms;
+    public List<Room> getAll() {
+        return rooms.stream()
+                .sorted(Comparator.comparing(Room::getId))
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -49,15 +50,15 @@ public class RoomDaoMemoryImpl implements RoomDAO {
         findById(id).setRoomCondition(RoomCondition.RENOVATED);
     }
 
-    public Set<Room> getAllAvailable() {
+    public List<Room> getAllAvailable() {
         return rooms.stream()
                 .filter(r -> !r.isFull())
-                .collect(Collectors.toSet());
+                .sorted(Comparator.comparing(Room::getId))
+                .collect(Collectors.toList());
     }
 
-    public Set<Room> getWithoutPetType(PetType... petTypes) {
-        Set<Room> filteredRooms = new HashSet<>();
-        filteredRooms.addAll(rooms.stream()
+    public List<Room> getWithoutPetType(PetType... petTypes) {
+        return rooms.stream()
                 .filter(r -> r.getStudents()
                         .stream()
                         .noneMatch(s -> {
@@ -66,7 +67,7 @@ public class RoomDaoMemoryImpl implements RoomDAO {
                             }
                             return false;
                         }))
-                .collect(Collectors.toSet()));
-        return filteredRooms;
+                .sorted(Comparator.comparing(Room::getId))
+                .collect(Collectors.toList());
     }
 }

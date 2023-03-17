@@ -4,11 +4,11 @@ import com.codecool.hogwartshouses.model.Room;
 import com.codecool.hogwartshouses.model.types.PetType;
 import org.springframework.stereotype.Repository;
 
-import java.util.Set;
+import java.util.List;
 
 @Repository
 public interface RoomDAO {
-    Set<Room> getAll();
+    List<Room> getAll();
 
     void add(Room room);
 
@@ -18,7 +18,7 @@ public interface RoomDAO {
 
     void renovate(int id);
 
-    Set<Room> getAllAvailable();
-    Set<Room> getWithoutPetType(PetType... petTypes);
+    List<Room> getAllAvailable();
+    List<Room> getWithoutPetType(PetType... petTypes);
 
 }

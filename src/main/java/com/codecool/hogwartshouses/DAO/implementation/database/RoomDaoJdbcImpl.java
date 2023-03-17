@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.util.Set;
+import java.util.List;
 
 @Repository
 @Primary
@@ -22,7 +22,7 @@ public class RoomDaoJdbcImpl implements RoomDAO {
     }
 
     @Override
-    public Set<Room> getAll() {
+    public List<Room> getAll() {
         return null;
     }
 
@@ -47,12 +47,12 @@ public class RoomDaoJdbcImpl implements RoomDAO {
     }
 
     @Override
-    public Set<Room> getAllAvailable() {
+    public List<Room> getAllAvailable() {
         return null;
     }
 
     @Override
-    public Set<Room> getWithoutPetType(PetType... petTypes) {
+    public List<Room> getWithoutPetType(PetType... petTypes) {
         return null;
     }
 }

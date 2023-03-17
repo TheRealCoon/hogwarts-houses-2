@@ -42,15 +42,11 @@ public class RoomService {
     }
 
     public List<Room> getAllAvailable(){
-        return roomDAO.getAllAvailable().stream()
-                .sorted(Comparator.comparing(Room::getId))
-                .collect(Collectors.toList());
+        return roomDAO.getAllAvailable();
     }
 
     public List<Room> getWithoutPetType(PetType... petTypes){
-        return roomDAO.getWithoutPetType(petTypes).stream()
-                .sorted(Comparator.comparing(Room::getId))
-                .collect(Collectors.toList());
+        return roomDAO.getWithoutPetType(petTypes);
     }
 
 }
