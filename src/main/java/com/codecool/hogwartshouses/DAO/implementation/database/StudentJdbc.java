@@ -25,4 +25,14 @@ public class StudentJdbc implements StudentDAO {
     public Student findByName(String name) {
         return null;
     }
+
+    @Override
+    public void update(long id, Student student) {
+
+    }
+
+    @Override
+    public void delete(long id) {
+
+    }
 }
