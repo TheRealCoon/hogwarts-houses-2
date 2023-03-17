@@ -1,5 +1,6 @@
-package com.codecool.hogwartshouses.DAO;
+package com.codecool.hogwartshouses.DAO.implementation.memory;
 
+import com.codecool.hogwartshouses.DAO.RoomDAO;
 import com.codecool.hogwartshouses.model.Room;
 import com.codecool.hogwartshouses.model.types.PetType;
 import com.codecool.hogwartshouses.model.types.RoomCondition;

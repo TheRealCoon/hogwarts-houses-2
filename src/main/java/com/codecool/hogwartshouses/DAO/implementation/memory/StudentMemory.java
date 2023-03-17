@@ -1,5 +1,6 @@
-package com.codecool.hogwartshouses.DAO;
+package com.codecool.hogwartshouses.DAO.implementation.memory;
 
+import com.codecool.hogwartshouses.DAO.StudentDAO;
 import com.codecool.hogwartshouses.model.Student;
 import org.springframework.stereotype.Repository;
 
