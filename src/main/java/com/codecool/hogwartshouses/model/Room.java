@@ -13,7 +13,7 @@ import java.util.Set;
 public class Room {
     private final static int ROOM_CAPACITY = 3;
     @JsonIgnore
-    private  long id;
+    private long id;
     private final Set<Student> students = new HashSet<>();
     private final HouseType houseType;
     private RoomCondition roomCondition;
@@ -26,7 +26,6 @@ public class Room {
     }
 
     private void checkIfFull() {
-        if (students.size() == ROOM_CAPACITY)
-            this.isFull = true;
+        this.isFull = students.size() >= ROOM_CAPACITY;
     }
 }
