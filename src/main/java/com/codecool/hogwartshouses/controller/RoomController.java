@@ -27,9 +27,10 @@ public class RoomController {
     }
 
     @PostMapping
-    public String add(@RequestParam("houseType") HouseType houseType,
+    public String add(@RequestParam("buildingId") long buildingId,
+                      @RequestParam("houseType") HouseType houseType,
                       @RequestParam("roomCondition") RoomCondition roomCondition) {
-        roomService.add(Room.builder().houseType(houseType).roomCondition(roomCondition).build());
+        roomService.add(Room.builder().buildingId(buildingId).houseType(houseType).roomCondition(roomCondition).build());
         return "redirect:/rooms";
     }
 

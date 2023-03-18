@@ -45,6 +45,9 @@
         </tbody>
     </table>
     <form class="custom-select" method="post">
+
+        <label for="buildingId">Building ID:</label>&nbsp
+        <input type="number" id="buildingId" name="buildingId" min="1" max="10" value="1">
         <div class="select-wrapper">
             <select name="houseType" id="houseType">
                 <option value="GRYFFINDOR">Gryffindor</option>
@@ -53,7 +56,7 @@
                 <option value="SLYTHERIN">Slytherin</option>
             </select>
             <div class="select-arrow" id="select-arrow-1"></div>
-            <select class="custom-select" name="roomCondition" id="roomCondition">
+            <select class="custom-select" id="roomCondition" name="roomCondition">
                 <option value="RENOVATED">renovated</option>
                 <option value="MESSY">messy</option>
                 <option value="OLD">old</option>
