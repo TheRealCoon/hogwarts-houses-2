@@ -18,7 +18,7 @@ body {
 h1 {
     font-family: 'Playfair Display', serif;
     color: rgba(204, 204, 204, 0.8);
-    margin: 2em;
+    margin: 1em;
     text-align: center;
     font-size: 2.5em;
     font-weight: bold;
@@ -83,7 +83,7 @@ table, .container {
     background-color: rgba(62, 33, 22, 0.5);
     border-radius: 20px;
     width: 700px;
-    padding: 50px;
+    padding: 20px 50px 50px 50px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
 }
 
@@ -93,7 +93,7 @@ th {
     padding-left: 10px;
 }
 
-tr th:nth-child(4) {
+/*tr th:nth-child(4) {
     width: 300px;
 }
 
@@ -107,7 +107,7 @@ tr th:nth-child(2) {
 
 tr th:nth-child(3) {
     width: 100px;
-}
+} */
 
 table {
     border-collapse: separate;
