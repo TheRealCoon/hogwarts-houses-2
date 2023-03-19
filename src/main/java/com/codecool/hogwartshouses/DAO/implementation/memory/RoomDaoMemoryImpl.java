@@ -2,8 +2,8 @@ package com.codecool.hogwartshouses.DAO.implementation.memory;
 
 import com.codecool.hogwartshouses.DAO.RoomDAO;
 import com.codecool.hogwartshouses.model.Room;
-import com.codecool.hogwartshouses.model.types.PetType;
-import com.codecool.hogwartshouses.model.types.RoomCondition;
+import com.codecool.hogwartshouses.model.enums.PetType;
+import com.codecool.hogwartshouses.model.enums.RoomCondition;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;

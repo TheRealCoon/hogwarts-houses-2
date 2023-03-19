@@ -1,7 +1,7 @@
 package com.codecool.hogwartshouses.model;
 
-import com.codecool.hogwartshouses.model.types.HouseType;
-import com.codecool.hogwartshouses.model.types.RoomCondition;
+import com.codecool.hogwartshouses.model.enums.HouseType;
+import com.codecool.hogwartshouses.model.enums.RoomCondition;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 

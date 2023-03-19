@@ -1,8 +1,8 @@
 package com.codecool.hogwartshouses.DAO.mapper;
 
 import com.codecool.hogwartshouses.model.Room;
-import com.codecool.hogwartshouses.model.types.HouseType;
-import com.codecool.hogwartshouses.model.types.RoomCondition;
+import com.codecool.hogwartshouses.model.enums.HouseType;
+import com.codecool.hogwartshouses.model.enums.RoomCondition;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 

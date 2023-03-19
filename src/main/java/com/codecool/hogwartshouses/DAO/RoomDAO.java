@@ -1,7 +1,7 @@
 package com.codecool.hogwartshouses.DAO;
 
 import com.codecool.hogwartshouses.model.Room;
-import com.codecool.hogwartshouses.model.types.PetType;
+import com.codecool.hogwartshouses.model.enums.PetType;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

@@ -1,9 +1,9 @@
 package com.codecool.hogwartshouses.controller;
 
 import com.codecool.hogwartshouses.model.Room;
-import com.codecool.hogwartshouses.model.types.HouseType;
-import com.codecool.hogwartshouses.model.types.PetType;
-import com.codecool.hogwartshouses.model.types.RoomCondition;
+import com.codecool.hogwartshouses.model.enums.HouseType;
+import com.codecool.hogwartshouses.model.enums.PetType;
+import com.codecool.hogwartshouses.model.enums.RoomCondition;
 import com.codecool.hogwartshouses.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

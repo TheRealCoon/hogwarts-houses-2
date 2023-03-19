@@ -4,7 +4,7 @@ import com.codecool.hogwartshouses.DAO.RoomDAO;
 import com.codecool.hogwartshouses.DAO.mapper.RoomMapper;
 import com.codecool.hogwartshouses.DAO.mapper.StudentMapper;
 import com.codecool.hogwartshouses.model.Room;
-import com.codecool.hogwartshouses.model.types.PetType;
+import com.codecool.hogwartshouses.model.enums.PetType;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
