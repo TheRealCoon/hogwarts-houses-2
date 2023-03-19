@@ -33,17 +33,15 @@ public class RoomDaoJdbcImpl implements RoomDAO {
     public List<Room> getAll() {
         final String sql = "SELECT id, building_id, house_type, room_condition FROM room;";
         List<Room> rooms = template.query(sql, mapper);
-        getResidents(rooms);
+        rooms.forEach(room -> getResidentsFromDB(room));
         return rooms;
     }
 
-    private void getResidents(List<Room> rooms) {
+    private void getResidentsFromDB(Room room) {
         final String sql = "SELECT s.id, s.name, s.house_type, s.pet_type FROM student AS s " +
                 "JOIN resident AS r ON s.id = r.student_id " +
                 "WHERE r.room_id = ?;";
-        for (Room room : rooms) {
-            template.query(sql, new StudentMapper(), room.getId()).forEach(room::addStudent);
-        }
+        template.query(sql, new StudentMapper(), room.getId()).forEach(room::addStudent);
     }
 
     private void linkResidents(Room room) {
@@ -75,9 +73,9 @@ public class RoomDaoJdbcImpl implements RoomDAO {
     @Override
     public Optional<Room> findById(long id) {
         final String sql = "SELECT id, building_id, house_type, room_condition FROM room WHERE id = ?;";
-        List<Room> rooms = template.query(sql, mapper, id);
-        getResidents(rooms);
-        return template.query(sql, mapper, id).stream().findFirst();
+        Optional<Room> maybeRoom = template.query(sql, mapper, id).stream().findFirst();
+        maybeRoom.ifPresent(this::getResidentsFromDB);
+        return maybeRoom;
     }
 
     @Override
