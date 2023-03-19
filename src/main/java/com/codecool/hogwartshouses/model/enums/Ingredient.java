@@ -24,18 +24,14 @@ public enum Ingredient {
     VERVAIN("vervain"),
     WATER("water");
 
-    private final String rep;
+    private final String stringValue;
 
-    Ingredient(String rep) {
-        this.rep = rep;
-    }
-
-    public String getRep() {
-        return rep;
+    Ingredient(String stringValue) {
+        this.stringValue = stringValue;
     }
 
     @Override
     public String toString() {
-        return this.rep;
+        return stringValue;
     }
 }
