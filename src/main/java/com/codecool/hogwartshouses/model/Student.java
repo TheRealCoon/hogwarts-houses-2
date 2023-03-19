@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -16,5 +18,5 @@ public class Student {
  private String name;
  private HouseType houseType;
  private PetType petType;
-
+ private Set<Recipe> knownRecipes;
 }
