@@ -1,6 +1,7 @@
 package com.codecool.hogwartshouses.DAO.implementation.database;
 
 import com.codecool.hogwartshouses.DAO.StudentDAO;
+import com.codecool.hogwartshouses.DAO.mapper.RecipeMapper;
 import com.codecool.hogwartshouses.DAO.mapper.StudentMapper;
 import com.codecool.hogwartshouses.model.Student;
 import org.springframework.context.annotation.Primary;
@@ -24,25 +25,40 @@ public class StudentDaoJdbcImpl implements StudentDAO {
     @Override
     public List<Student> getAll() {
         final String sql = "SELECT id, name, pet_type, house_type FROM student;";
-        return template.query(sql, mapper);
+        List<Student> students = template.query(sql, mapper);
+        students.forEach(this::getKnownRecipes);
+        return students;
+    }
+
+    private void getKnownRecipes(Student student){
+        final String sql =
+                "SELECT r.id, r.name FROM recipe AS r " +
+                "JOIN known_recipes AS kr ON r.id = kr.recipe_id " +
+                "WHERE kr.student_id = ?;";
+        template.query(sql, new RecipeMapper(), student.getId());
     }
 
     @Override
     public void add(Student student) {
         final String sql = "INSERT INTO student (name, pet_type, house_type) VALUES (?, ?, ?);";
         template.update(sql, student.getName(), student.getPetType().toString(), student.getHouseType().toString());
+        //TODO if has recipes at creation those need to be added
     }
 
     @Override
     public Student findByName(String name) {
         final String sql = "SELECT id, name, pet_type, house_type FROM student WHERE name = ?;";
-        return template.query(sql, mapper, name).stream().findFirst().orElse(null);
+        Optional<Student> maybeStudent = template.query(sql, mapper, name).stream().findFirst();
+        maybeStudent.ifPresent(this::getKnownRecipes);
+        return maybeStudent.get();
     }
 
     @Override
     public Optional<Student> findById(long id) {
         final String sql = "SELECT id, name, pet_type, house_type FROM student WHERE id = ?;";
-        return template.query(sql, mapper, id).stream().findFirst();
+        Optional<Student> maybeStudent = template.query(sql, mapper, id).stream().findFirst();
+        maybeStudent.ifPresent(this::getKnownRecipes);
+        return maybeStudent;
     }
 
 
