@@ -13,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Recipe {
+    private long id;
     private String name;
     private List<Ingredient> ingredients;
 }
