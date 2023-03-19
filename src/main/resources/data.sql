@@ -16,6 +16,42 @@ INSERT INTO picture (building_id) VALUES (4);
 INSERT INTO picture (building_id) VALUES (4);
 INSERT INTO picture (building_id) VALUES (5);
 
+INSERT INTO recipe (name) VALUES('ageing potion');
+INSERT INTO recipe (name) VALUES('felix felicis');
+INSERT INTO recipe (name) VALUES('laxative potion');
+INSERT INTO recipe (name) VALUES('oculus potion');
+INSERT INTO recipe (name) VALUES('venomous tentaula juice');
+
+INSERT INTO ingredients (recipe_id, ingredient) VALUES ( 1, 'cowbane' );
+INSERT INTO ingredients (recipe_id, ingredient) VALUES ( 1, 'eel eye' );
+INSERT INTO ingredients (recipe_id, ingredient) VALUES ( 1, 'dragon blood' );
+INSERT INTO ingredients (recipe_id, ingredient) VALUES ( 1, 'rat tail' );
+INSERT INTO ingredients (recipe_id, ingredient) VALUES ( 1, 'kelp' );
+
+INSERT INTO ingredients (recipe_id, ingredient) VALUES ( 2, 'bat wing' );
+INSERT INTO ingredients (recipe_id, ingredient) VALUES ( 2, 'pearl dust' );
+INSERT INTO ingredients (recipe_id, ingredient) VALUES ( 2, 'tar' );
+INSERT INTO ingredients (recipe_id, ingredient) VALUES ( 2, 'vervain' );
+INSERT INTO ingredients (recipe_id, ingredient) VALUES ( 2, 'water' );
+
+INSERT INTO ingredients (recipe_id, ingredient) VALUES ( 3, 'lavender' );
+INSERT INTO ingredients (recipe_id, ingredient) VALUES ( 3, 'mandrake' );
+INSERT INTO ingredients (recipe_id, ingredient) VALUES ( 3, 'newt' );
+INSERT INTO ingredients (recipe_id, ingredient) VALUES ( 3, 'scarab beetle' );
+INSERT INTO ingredients (recipe_id, ingredient) VALUES ( 3, 'jewelweed' );
+
+INSERT INTO ingredients (recipe_id, ingredient) VALUES ( 4, 'flesh' );
+INSERT INTO ingredients (recipe_id, ingredient) VALUES ( 4, 'iguana blood' );
+INSERT INTO ingredients (recipe_id, ingredient) VALUES ( 4, 'octopus powder' );
+INSERT INTO ingredients (recipe_id, ingredient) VALUES ( 4, 'unicorn blood' );
+INSERT INTO ingredients (recipe_id, ingredient) VALUES ( 4, 'goosegrass' );
+
+INSERT INTO ingredients (recipe_id, ingredient) VALUES ( 5, 'cowbane' );
+INSERT INTO ingredients (recipe_id, ingredient) VALUES ( 5, 'vervain' );
+INSERT INTO ingredients (recipe_id, ingredient) VALUES ( 5, 'goosegrass' );
+INSERT INTO ingredients (recipe_id, ingredient) VALUES ( 5, 'kelp' );
+INSERT INTO ingredients (recipe_id, ingredient) VALUES ( 5, 'mandrake' );
+
 -- The data below is already added in RoomCreator and StudentCreator
 /*
 INSERT INTO room (building_id, house_type, room_condition) VALUES (1, 'GRYFFINDOR', 'OLD');
