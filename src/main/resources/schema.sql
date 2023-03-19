@@ -78,6 +78,13 @@ CREATE TABLE ingredients
                     ) NOT NULL
 );
 
+DROP TABLE IF EXISTS known_recipes CASCADE;
+CREATE TABLE known_recipes
+(
+  student_id        long NOT NULL,
+  recipe_id         long NOT NULL
+);
+
 ALTER TABLE room
     ADD FOREIGN KEY (building_id)
         REFERENCES building(id)
@@ -99,6 +106,16 @@ ALTER TABLE resident
         ON DELETE CASCADE;
 
 ALTER TABLE ingredients
+    ADD FOREIGN KEY (recipe_id)
+        REFERENCES recipe(id)
+        ON DELETE CASCADE;
+
+ALTER TABLE known_recipes
+    ADD FOREIGN KEY (student_id)
+        REFERENCES student(id)
+        ON DELETE CASCADE;
+
+ALTER TABLE known_recipes
     ADD FOREIGN KEY (recipe_id)
         REFERENCES recipe(id)
         ON DELETE CASCADE;
