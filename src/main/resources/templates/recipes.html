@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Potion Recipes</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <h1>Potion recipes</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Ingredients</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="recipe:${recipes}">
+            <td th:text="${recipe.getId()}?:'###'"></td>
+            <td th:text="${recipe.getName()}?:'###'"></td>
+            <td>
+                <span th:if="${recipe.getIngredients().isEmpty()}">no data</span>
+                <span th:unless="${recipe.getIngredients().isEmpty()}" th:each="ingredient:${recipe.getIngredients()}"
+                      th:text="|${ingredient.toString()}, |"></span>
+            </td>
+         <!--   <td>
+                <div class="button-group">
+                    <form th:action="@{'/recipes/{id}'(id=${recipe.getId()})}" th:method="get">
+                        <button class="go-btn" type="submit">Go to</button>
+                    </form>
+                    <form th:action="@{'/recipes/{id}'(id=${recipe.getId()})}" th:method="put">
+                        <button class="ren-btn" type="submit">Renovate</button>
+                    </form>
+                    <form th:action="@{'/recipes/{id}'(id=${room.getId()})}" th:method="delete">
+                        <button class="del-btn" type="submit">Delete</button>
+                    </form>
+                </div>
+            </td> -->
+        </tr>
+        </tbody>
+    </table>
+    <a href="/rooms">Back</a>
+</div>
+</body>
+</html>
