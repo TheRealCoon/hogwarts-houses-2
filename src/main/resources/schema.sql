@@ -41,6 +41,43 @@ CREATE TABLE resident
     room_id         long NOT NULL
 );
 
+DROP TABLE IF EXISTS recipe CASCADE;
+CREATE TABLE recipe
+(
+    id              long identity NOT NULL PRIMARY KEY,
+    name            varchar(100) NOT NULL
+);
+
+DROP TABLE IF EXISTS ingredients CASCADE;
+CREATE TABLE ingredients
+(
+    recipe_id       long NOT NULL,
+    ingredient      ENUM(
+                        'braxian hair',
+                        'bat wing',
+                        'cowbane',
+                        'dragon blood',
+                        'eel eye',
+                        'flesh',
+                        'goosegrass',
+                        'haliwinkles',
+                        'iguana blood',
+                        'jewelweed',
+                        'kelp',
+                        'lavender',
+                        'mandrake',
+                        'newt',
+                        'octopus powder',
+                        'pearl dust',
+                        'rat tail',
+                        'scarab beetle',
+                        'tar',
+                        'unicorn blood',
+                        'vervain',
+                        'water'
+                    ) NOT NULL
+);
+
 ALTER TABLE room
     ADD FOREIGN KEY (building_id)
         REFERENCES building(id)
@@ -59,4 +96,9 @@ ALTER TABLE resident
 ALTER TABLE resident
     ADD FOREIGN KEY (room_id)
         REFERENCES room(id)
+        ON DELETE CASCADE;
+
+ALTER TABLE ingredients
+    ADD FOREIGN KEY (recipe_id)
+        REFERENCES recipe(id)
         ON DELETE CASCADE;
