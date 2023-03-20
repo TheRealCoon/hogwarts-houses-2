@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,7 +27,7 @@ public class StudentDaoJdbcImpl implements StudentDAO {
     public List<Student> getAll() {
         final String sql = "SELECT id, name, pet_type, house_type FROM student;";
         List<Student> students = template.query(sql, mapper);
-        students.forEach(this::getKnownRecipes);
+        students.forEach(s -> s.setKnownRecipes(new HashSet<>(getKnownRecipes(s))));
         return students;
     }
 
