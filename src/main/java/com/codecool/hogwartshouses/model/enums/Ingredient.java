@@ -1,7 +1,11 @@
 package com.codecool.hogwartshouses.model.enums;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public enum Ingredient {
-    ABRAXAN_HAIR("abraxian hair"),
+    ABRAXIAN_HAIR("abraxian hair"),
     BAT_WING("bat wing"),
     COWBANE("cowbane"),
     DRAGON_BLOOD("dragon blood"),
@@ -33,5 +37,18 @@ public enum Ingredient {
     @Override
     public String toString() {
         return stringValue;
+    }
+
+    public static Ingredient getByStringValue(String string) {
+        return Arrays.stream(values())
+                .filter(i -> string.equals(i.toString()))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public static List<String> getStringValues() {
+        return Arrays.stream(values())
+                .map(Ingredient::toString)
+                .collect(Collectors.toList());
     }
 }
