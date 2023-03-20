@@ -53,7 +53,7 @@ CREATE TABLE ingredients
 (
     recipe_id       long NOT NULL,
     ingredient      ENUM(
-                        'braxian hair',
+                        'abraxian hair',
                         'bat wing',
                         'cowbane',
                         'dragon blood',
