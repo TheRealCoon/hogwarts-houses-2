@@ -1,9 +1,12 @@
 package com.codecool.hogwartshouses.DAO.implementation.database;
 
 import com.codecool.hogwartshouses.DAO.StudentDAO;
+import com.codecool.hogwartshouses.DAO.mapper.IngredientMapper;
 import com.codecool.hogwartshouses.DAO.mapper.RecipeMapper;
 import com.codecool.hogwartshouses.DAO.mapper.StudentMapper;
+import com.codecool.hogwartshouses.model.Recipe;
 import com.codecool.hogwartshouses.model.Student;
+import com.codecool.hogwartshouses.model.enums.Ingredient;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -31,12 +34,19 @@ public class StudentDaoJdbcImpl implements StudentDAO {
         return students;
     }
 
-    private void getKnownRecipes(Student student){
+    private List<Recipe> getKnownRecipes(Student student) {
         final String sql =
                 "SELECT r.id, r.name FROM recipe AS r " +
-                "JOIN known_recipes AS kr ON r.id = kr.recipe_id " +
-                "WHERE kr.student_id = ?;";
-        template.query(sql, new RecipeMapper(), student.getId());
+                        "JOIN known_recipes AS kr ON r.id = kr.recipe_id " +
+                        "WHERE kr.student_id = ?;";
+        List<Recipe> recipes = template.query(sql, new RecipeMapper(), student.getId());
+        recipes.forEach(r -> r.setIngredients(getIngredientsFromDB(r.getId())));
+        return recipes;
+    }
+
+    private List<Ingredient> getIngredientsFromDB(long recipeId) {
+        final String sql = "SELECT ingredient FROM ingredients WHERE recipe_id = ?;";
+        return template.query(sql, new IngredientMapper(), recipeId);
     }
 
     @Override
