@@ -18,4 +18,8 @@ public class StudentService {
     public Student findByName(String name){
        return studentDAO.findByName(name);
     }
+
+    public Student getById(long studentId) {
+        return studentDAO.getById(studentId).get();
+    }
 }
