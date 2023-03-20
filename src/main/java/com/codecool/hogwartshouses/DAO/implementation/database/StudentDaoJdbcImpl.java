@@ -50,7 +50,7 @@ public class StudentDaoJdbcImpl implements StudentDAO {
     public Student findByName(String name) {
         final String sql = "SELECT id, name, pet_type, house_type FROM student WHERE name = ?;";
         Optional<Student> maybeStudent = template.query(sql, mapper, name).stream().findFirst();
-        maybeStudent.ifPresent(this::getKnownRecipes);
+        maybeStudent.ifPresent(s -> s.setKnownRecipes(new HashSet<>(getKnownRecipes(s))));
         return maybeStudent.get();
     }
 
