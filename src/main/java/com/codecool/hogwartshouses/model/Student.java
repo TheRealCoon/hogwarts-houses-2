@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -18,5 +19,5 @@ public class Student {
  private String name;
  private HouseType houseType;
  private PetType petType;
- private Set<Recipe> knownRecipes;
+ private Set<Recipe> knownRecipes = new HashSet<>();
 }
