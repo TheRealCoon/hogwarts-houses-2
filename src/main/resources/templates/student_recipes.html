@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" th:with="title=${student.getName()} + '\'s known potion recipes'">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <h3 th:text="${title}">Placeholder title</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>name</th>
+            <th>Ingredients</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="recipe:${student.getKnownRecipes()}">
+            <td th:text="${recipe.getId()}?:'###'"></td>
+            <td th:text="${recipe.getName()}?:'###'"></td>
+            <td th:with="ingredients=${recipe.getIngredients()}">
+                <span th:if="${ingredients.isEmpty()}">n/a</span>
+                <span th:unless="${ingredients.isEmpty()}" th:each="ingredient:${ingredients}"
+                      th:text="|${ingredient.toString()}, |"></span>
+            </td>
+            <td>
+                <div class="button-group">
+
+                    <form th:action="@{'/rooms/{student_id}'(id=${recipe.getId()})}" th:method="get">
+                        <button class="go-btn" type="submit">Go to</button>
+                    </form>
+                    <form th:action="@{'/potionss/{id}'(id=${recipe.getId()})}" th:method="put">
+                        <button class="ren-btn" type="submit">Renovate</button>
+                    </form>
+                    <form th:action="@{'/potions/{id}'(id=${recipe.getId()})}" th:method="delete">
+                        <button class="del-btn" type="submit">Delete</button>
+                    </form>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Add new recipe:&nbsp</p>
+
+    <form class="custom-select" method="post">
+        <input type="text" id="name" name="name" value="Your new potion's name">
+        <div class="select-wrapper">
+            <select  name="potion_ingredients" id="potion_ingredients">
+                <option th:each="i:${allIngredients}" th:text="${i}" th:value="${i}"></option>
+            </select>
+            <div class="select-arrow" id="select-arrow-1"></div>
+        </div>
+
+        <button class="add-btn" type="submit" >Add Recipe</button>
+    </form>
+    <p>
+        <a href="/potions">Back</a>
+    </p>
+</div>
+</body>
+</html>
