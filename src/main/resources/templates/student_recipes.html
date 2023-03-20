@@ -48,10 +48,21 @@
     <form class="custom-select" method="post">
         <input type="text" id="name" name="name" value="Your new potion's name">
         <div class="select-wrapper">
-            <select  name="potion_ingredients" id="potion_ingredients">
+            <select  name="potion_ingredients">
                 <option th:each="i:${allIngredients}" th:text="${i}" th:value="${i}"></option>
             </select>
-            <div class="select-arrow" id="select-arrow-1"></div>
+            <select  name="potion_ingredients">
+                <option th:each="i:${allIngredients}" th:text="${i}" th:value="${i}"></option>
+            </select>
+            <select  name="potion_ingredients">
+                <option th:each="i:${allIngredients}" th:text="${i}" th:value="${i}"></option>
+            </select>
+            <select  name="potion_ingredients">
+                <option th:each="i:${allIngredients}" th:text="${i}" th:value="${i}"></option>
+            </select>
+            <select  name="potion_ingredients">
+                <option th:each="i:${allIngredients}" th:text="${i}" th:value="${i}"></option>
+            </select>
         </div>
 
         <button class="add-btn" type="submit" >Add Recipe</button>
