@@ -28,15 +28,11 @@
             </td>
             <td>
                 <div class="button-group">
-
-                    <form th:action="@{'/rooms/{student_id}'(id=${recipe.getId()})}" th:method="get">
-                        <button class="go-btn" type="submit">Go to</button>
-                    </form>
                     <form th:action="@{'/potionss/{id}'(id=${recipe.getId()})}" th:method="put">
-                        <button class="ren-btn" type="submit">Renovate</button>
+                        <button class="ren-btn" type="submit" disabled>Update</button>
                     </form>
                     <form th:action="@{'/potions/{id}'(id=${recipe.getId()})}" th:method="delete">
-                        <button class="del-btn" type="submit">Delete</button>
+                        <button class="del-btn" type="submit" disabled>Delete</button>
                     </form>
                 </div>
             </td>
