@@ -54,10 +54,10 @@ public class StudentDaoJdbcImpl implements StudentDAO {
     }
 
     @Override
-    public Optional<Student> findById(long id) {
+    public Optional<Student> getById(long id) {
         final String sql = "SELECT id, name, pet_type, house_type FROM student WHERE id = ?;";
         Optional<Student> maybeStudent = template.query(sql, mapper, id).stream().findFirst();
-        maybeStudent.ifPresent(this::getKnownRecipes);
+        maybeStudent.ifPresent(s -> s.setKnownRecipes(new HashSet<>(getKnownRecipes(s))));
         return maybeStudent;
     }
 

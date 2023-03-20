@@ -41,7 +41,7 @@ public class StudentDaoMemoryImpl implements StudentDAO {
     }
 
     @Override
-    public Optional<Student> findById(long id) {
+    public Optional<Student> getById(long id) {
         return students.stream()
                 .filter(s -> s.getId() == id)
                 .findFirst();

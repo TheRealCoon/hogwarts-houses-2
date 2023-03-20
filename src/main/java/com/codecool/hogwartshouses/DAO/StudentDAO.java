@@ -13,7 +13,7 @@ public interface StudentDAO {
     void add(Student student);
     Student findByName(String name);
 
-    Optional<Student> findById(long id);
+    Optional<Student> getById(long id);
 
     void update(long id, Student student);
 
