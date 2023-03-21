@@ -18,8 +18,8 @@ body {
     font-family: 'Raleway', sans-serif;
     background-image: url('../img/background2.jpg');
     background-size: cover;
-    /*background-repeat: no-repeat;*/
-    /*background-attachment: fixed;*/
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     font-size: 1.2em;
     line-height: 1.5;
 }
@@ -191,6 +191,18 @@ select option {
     border-color: #fff transparent transparent transparent;
     pointer-events: none;
     z-index: 0;
+    transform: rotate(90deg);
+    transform-origin: top left;
+    transition: transform 0.3s ease-in-out;
+}
+
+.select-arrow:not(:hover) {
+    transform: none;
+}
+
+.select-arrow:hover {
+    transform: rotate(90deg);
+    transform-origin: top left;
 }
 
 #select-arrow-1 {

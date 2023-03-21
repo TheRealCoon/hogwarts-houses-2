@@ -5,8 +5,10 @@ import com.codecool.hogwartshouses.service.PotionService;
 import com.codecool.hogwartshouses.service.StudentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -36,10 +38,16 @@ public class PotionController {
     @PostMapping("/{studentId}")
     public String addRecipeCreatedByStudent(
             @PathVariable long studentId,
-            @RequestParam("name") String name,
-            @RequestParam("potion_ingredients") List<String> ingredients,
+            @RequestParam("name") @Valid String name,
+            @RequestParam("potion_ingredients") @Valid List<String> ingredients,
+            BindingResult errors,
             @RequestHeader("Referer") String referer) {
-        potionService.add(studentId, name, ingredients);
-        return "redirect:" + referer;
+        if (errors.hasErrors() || !potionService.isPotionUnique(ingredients)) {
+            System.out.println("Wrong recipe!");
+            return "/{studentId}";
+        } else {
+            potionService.add(studentId, name, ingredients);
+            return "redirect:" + referer;
+        }
     }
 }

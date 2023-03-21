@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
+import java.util.Collections;
 import java.util.List;
 
 @Repository
@@ -45,6 +46,20 @@ public class PotionDaoJdbcImpl implements PotionDAO {
         long recipeId = addRecipe(name);
         ingredients.forEach(i -> addIngredientToRecipe(recipeId, i.toString()));
         addKnownRecipeToStudent(studentId, recipeId);
+    }
+
+    @Override
+    public boolean isPotionUnique(List<String> ingredients) {
+        List<Recipe> recipes = getAllRecipes();
+        Collections.sort(ingredients);
+        for (Recipe recipe : recipes) {
+            List<Ingredient> ingredientList = getIngredientsFromDB(recipe);
+            Collections.sort(ingredientList);
+            if (ingredients.equals(ingredientList)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private void addIngredientToRecipe(long recipeId, String i) {
