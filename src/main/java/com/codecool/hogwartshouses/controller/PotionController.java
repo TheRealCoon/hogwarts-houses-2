@@ -38,11 +38,10 @@ public class PotionController {
     @PostMapping("/{studentId}")
     public String addRecipeCreatedByStudent(
             @PathVariable long studentId,
-            @RequestParam("name") @Valid String name,
-            @RequestParam("potion_ingredients") @Valid List<String> ingredients,
-            BindingResult errors,
+            @RequestParam("name") String name,
+            @RequestParam("potion_ingredients") List<String> ingredients,
             @RequestHeader("Referer") String referer) {
-        if (errors.hasErrors() || !potionService.isPotionUnique(ingredients)) {
+        if (!potionService.isPotionUnique(ingredients)) {
             System.out.println("Wrong recipe!");
             return "/{studentId}";
         } else {
