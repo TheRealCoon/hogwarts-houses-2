@@ -33,9 +33,6 @@
             </td>
             <td>
                 <div class="button-group">
-<!--                    <form th:action="@{'/potions/{id}'(id=${recipe.getId()})}" th:method="put">-->
-<!--                        <button class="ren-btn" type="submit" disabled>Update</button>-->
-<!--                    </form>-->
                     <form th:action="@{'/potions/{studentId}/{recipeId}'(studentId=${student.getId()}, recipeId=${recipe.getId()})}" name="recipe_id" th:method="delete">
                         <button class="del-btn" type="submit">Delete</button>
                     </form>
@@ -46,6 +43,9 @@
     </table>
     <p>Add new recipe:&nbsp</p>
 
+<!--                    <form th:action="@{'/potions/{id}'(id=${recipe.getId()})}" th:method="put">-->
+<!--                        <button class="ren-btn" type="submit" disabled>Update</button>-->
+<!--                    </form>-->
     <form class="custom-select" method="post">
         <input type="text" id="name" name="name" placeholder="Your new potion's name">
         <div class="select-wrapper">
