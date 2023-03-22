@@ -15,4 +15,6 @@ public interface PotionDAO {
     void add(long studentId, String name, List<Ingredient> ingredients);
 
     boolean isPotionUnique(List<String> ingredients);
+
+    void delete(long studentId, long recipeId);
 }

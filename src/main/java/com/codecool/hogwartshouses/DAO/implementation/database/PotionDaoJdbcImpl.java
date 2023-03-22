@@ -62,6 +62,16 @@ public class PotionDaoJdbcImpl implements PotionDAO {
         return true;
     }
 
+    @Override
+    public void delete(long studentId, long recipeId) {
+//        final String sql = "DELETE FROM recipe WHERE id = ?";
+//        final String sql2 = "DELETE FROM ingredients WHERE recipe_id = ?";
+        final String sql = "DELETE FROM known_recipes WHERE student_id = ? AND recipe_id = ?";
+//        template.update(sql, recipeId);
+//        template.update(sql2, recipeId);
+        template.update(sql, studentId, recipeId);
+    }
+
     private void addIngredientToRecipe(long recipeId, String i) {
         final String sql = "INSERT INTO ingredients (recipe_id, ingredient) VALUES (?, ?);";
         template.update(sql, recipeId, i);
@@ -84,4 +94,6 @@ public class PotionDaoJdbcImpl implements PotionDAO {
         final String sql = "SELECT ingredient FROM ingredients WHERE recipe_id = ?;";
         return template.query(sql, ingredientMapper, recipe.getId());
     }
+
+
 }

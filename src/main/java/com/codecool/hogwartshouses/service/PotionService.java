@@ -49,4 +49,8 @@ public class PotionService {
     public boolean isPotionUnique(List<String> ingredients) {
         return potionDAO.isPotionUnique(ingredients);
     }
+
+    public void delete(long studentId, long recipeId) {
+        potionDAO.delete(studentId, recipeId);
+    }
 }

@@ -49,4 +49,14 @@ public class PotionController {
             return "redirect:" + referer;
         }
     }
+
+    @DeleteMapping("/{studentId}/{recipeId}")
+    public String deleteRecipeByStudent(
+            @PathVariable long studentId,
+            @PathVariable long recipeId,
+            @RequestHeader("Referer") String referer
+    ) {
+        potionService.delete(studentId, recipeId);
+        return "redirect:" + referer;
+    }
 }

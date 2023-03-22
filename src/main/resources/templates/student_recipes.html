@@ -33,11 +33,11 @@
             </td>
             <td>
                 <div class="button-group">
-                    <form th:action="@{'/potionss/{id}'(id=${recipe.getId()})}" th:method="put">
-                        <button class="ren-btn" type="submit" disabled>Update</button>
-                    </form>
-                    <form th:action="@{'/potions/{id}'(id=${recipe.getId()})}" th:method="delete">
-                        <button class="del-btn" type="submit" disabled>Delete</button>
+<!--                    <form th:action="@{'/potions/{id}'(id=${recipe.getId()})}" th:method="put">-->
+<!--                        <button class="ren-btn" type="submit" disabled>Update</button>-->
+<!--                    </form>-->
+                    <form th:action="@{'/potions/{studentId}/{recipeId}'(studentId=${student.getId()}, recipeId=${recipe.getId()})}" name="recipe_id" th:method="delete">
+                        <button class="del-btn" type="submit">Delete</button>
                     </form>
                 </div>
             </td>
